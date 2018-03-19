@@ -48,6 +48,14 @@ class Post(models.Model):
         return self.post_text
 
 
+class Player(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    date_of_birth = models.DateField(max_length=8, blank=True)
+    favorite_team = models.CharField(max_length=100, blank=True)
+    current_location = models.CharField(max_length=100, blank=True)
+    introduction = models.TextField(max_length=500, blank=True)
+
+
 
 
 
