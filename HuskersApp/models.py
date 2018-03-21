@@ -12,6 +12,8 @@ class Venue(models.Model):
     city = models.CharField(max_length=200)
     state = models.CharField(max_length=200)
     country = models.CharField(max_length=200)
+    created_date = models.DateTimeField(default=timezone.now)
+    updated_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -23,7 +25,7 @@ class Venue(models.Model):
 class Group(models.Model):
     name = models.CharField(max_length=200)
     venue = models.ForeignKey(Venue, related_name='group_venue')
-    meeting_time = models.TimeField(auto_now=True)
+    meeting_time = models.TimeField()
     groupAdmin = models.ForeignKey(User, related_name='group_admin')
     hashtag = models.CharField(max_length=100)
     users = models.ManyToManyField(User)
