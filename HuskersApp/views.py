@@ -12,7 +12,6 @@ from .serializers import *
 
 # Create your views here.
 
-
 def home(request):
     posts = Post.objects.count()
     groups = Group.objects.count()
@@ -23,14 +22,19 @@ def home(request):
                   'groups': groups,
                   'members': members})
 
+"""
+Manage Venues
+"""
 
 @login_required
 def venue_list(request):
     """
-    List All Venues 
+    List All Venues available
     """
     venues = Venue.objects.all()
     serializer = VenueSerializer(venues, many=True)
+    # TODO: List all new venues based on created_date
+    # TODO: List all popular venues based on group count
     return render(request, 'HuskersApp/venue_list.html',
                     {'venues': venues})
        
@@ -77,6 +81,93 @@ def venue_new(request):
 
 @login_required
 def venue_delete(request, pk):
+    # TODO: Check Venue delete case
     venue = get_object_or_404(Venue, pk=pk)
     venue.delete()
     return redirect('HuskersApp/venue_list.html')
+
+
+@login_required
+def venue_detail(request, pk):
+    # Based on venue Detail page in mockups
+    venue = get_object_or_404(Venue, pk=pk)
+    # Get all groups of which the venue is part of
+    groups = Group.objects.filter(venue=pk);
+    return render(request, 'HuskersApp/venue_detail.html',
+                    {'venue': venue,
+                    'groups': groups})
+    
+
+"""
+Manage Groups
+"""
+
+@login_required
+def group_list(request):
+    """
+    List All Groups 
+    """
+    groups = Group.objects.all()
+    # Get the current user
+    currentUser = request.user
+    # Get the groups of which the current user is a part 
+    currentUserGroups = User.objects.get(id=currentUser.id).group_set.all()
+    return render(request, 'HuskersApp/group_list.html',
+                    {'groups': groups,
+                    'currentUserGroups': currentUserGroups})
+       
+
+@login_required
+def group_detail(request, pk):
+    # List details of a group
+    group = get_object_or_404(Group, pk=pk)
+    return render(request, 'HuskersApp/group_detail.html',
+                    {'group': group})
+
+@login_required
+def group_new(request):
+    """
+    Add a new Group
+    """
+    if request.method == 'POST':
+        form = GroupForm(request.POST)
+        if form.is_valid():
+            group = form.save(commit=False)
+            group.created_date = timezone.now()
+            group.save()
+            groups = Group.objects.filter(created_date__lte=timezone.now())
+            return render(request, 'HuskersApp/group_list.html',
+                            {'groups': groups})
+
+    else:
+        form = GroupForm
+    return render(request, 'HuskersApp/group_new.html',
+                    {'form': form})
+
+
+@login_required
+def group_delete(request, pk):
+    # TODO: Check Group delete case if user is admin of Group
+    group = get_object_or_404(Group, pk=pk)
+    group.delete()
+    #TODO: Check which page to be routed 
+    return redirect('HuskersApp/group_list.html')
+
+
+@login_required
+def group_edit(request, pk):
+    group = get_object_or_404(Group, pk=pk)
+    if request.method == 'POST':
+        form = GroupForm(request.POST, instance=group)
+        if form.is_valid():
+            group = form.save(commit=False)
+            group.updated_date = timezone.now()
+            group.save()
+            group = Group.objects.filter(created_date__lte=timezone.now())
+            return render(request, 'HuskersApp/group_list.html',
+                            {'group': group})
+
+    else:
+        form = GroupForm(instance=venue)
+    return render(request, 'HuskersApp/group_edit.html',
+                {'form': form})
