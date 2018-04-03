@@ -1,70 +1,157 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>HuskersNetwork</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-<html lang="en">
-<head>
-    <title>Huskers Network</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="../../static/images/favicon.ico">
 
-</head>
-<body id="app-layout">
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
+        <!-- App css -->
+        <link href="../../static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../static/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="../../static/css/style.css" rel="stylesheet" type="text/css" />
 
-            <!-- Collapsed Hamburger -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#myNavbar">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <script src="../../static/js/modernizr.min.js"></script>
 
-            <!-- Branding Image -->
-            <a class="navbar-brand" href="/">
-                <img src="{% static "images/HuskersNetwork.JPG" %}" />
-            </a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><a href="{% url 'HuskersApp:home' %}">Home</a></li>
-                {# TODO: Enable when url and views are updated #}
-{#                <li><a href="{% url 'HuskersApp:group_list' %}">Groups</a></li>#}
-{#                <li><a href="{% url 'HuskersApp:venue_list' %}">Venues</a></li>#}
-{#                <li><a href="{% url 'HuskersApp:hashtag_list' %}">Hashtag Feed</a></li>#}
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                {% if user.is_authenticated %}
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ user.username }}<span class="caret"></span>
+    </head>
+
+    <body>
+
+        <!-- Navigation Bar-->
+        <header id="topnav">
+            <div class="topbar-main">
+                <div class="container-fluid">
+
+                    <!-- Logo container-->
+                    <div class="logo">
+                        <a href="index.html" class="logo">
+                            <img src="../../static/images/logo.png" alt="" height="22" class="logo-large">
                         </a>
-{#                        <ul class="dropdown-menu" role="menu">#}
-{#                            <li><a href="{% url 'logout' %}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>#}
-{#                        </ul>#}
-                    </li>
-                {% else %}
-                    {# TODO: Need to add url for Sign up, Login and  Logout#}
-{#                    <li><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>#}
-{#                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>#}
-                {% endif %}
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="content container">
-    <div class="row">
-        <div class="col-md-8">
+
+                    </div>
+                    <!-- End Logo container-->
+
+
+                    <div class="menu-extras topbar-custom">
+
+                        <ul class="list-unstyled topbar-right-menu float-right mb-0">
+
+                            <li class="menu-item">
+                                <!-- Mobile menu toggle-->
+                                <a class="navbar-toggle nav-link">
+                                    <div class="lines">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                                <!-- End mobile menu toggle-->
+                            </li>
+                            
+
+                            <li class="dropdown notification-list">
+                                <a class="nav-link dropdown-toggle waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
+                                   aria-haspopup="false" aria-expanded="false">
+                                    <img src="../../static/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1 pro-user-name">John Smith <i class="mdi mdi-chevron-down"></i> </span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                                    <!-- item-->
+                                    <a href="" class="dropdown-item notify-item">
+                                        <i class="fi-lock"></i> <span>Change Password</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="" class="dropdown-item notify-item">
+                                        <i class="fi-head"></i> <span>Manage Account</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="" class="dropdown-item notify-item">
+                                        <i class="fi-cog"></i> <span>Log Out</span>
+                                    </a>
+
+                                    
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end menu-extras -->
+
+                    <div class="clearfix"></div>
+
+                </div> <!-- end container -->
+            </div>
+            <!-- end topbar-main -->
+
+            <div class="navbar-custom">
+                <div class="container-fluid">
+                    <div id="navigation">
+                        <!-- Navigation Menu-->
+                        <ul class="navigation-menu">
+
+                            <li>
+                                <a href=""><i class="icon-home"></i>Home</a>
+                            </li>
+                            <li>
+                                <a href=""><i class="icon-people"></i>Groups</a>
+                            </li>
+                            <li>
+                                <a href="index.html"><i class="icon-location-pin"></i>Venues</a>
+                            </li>
+                            <li>
+                                <a href="index.html"><i class="icon-globe"></i>Hashtag Feed</a>
+                            </li>
+                            
+
+                        </ul>
+                        <!-- End navigation menu -->
+                    </div> <!-- end #navigation -->
+                </div> <!-- end container -->
+            </div> <!-- end navbar-custom -->
+        </header>
+        <!-- End Navigation Bar-->
+
+
+        <div class="wrapper">
+            <div class="container-fluid">
             {% block content %}
 
             {% endblock %}
+
+            </div> <!-- end container -->
         </div>
-    </div>
-</body>
+        <!-- end wrapper -->
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        2018 © HuskersNetwork
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+
+        <!-- jQuery  -->
+        <script src="../../static/js/jquery.min.js"></script>
+        <script src="../../static/js/popper.min.js"></script>
+        <script src="../../static/js/bootstrap.min.js"></script>
+        <script src="../../static/js/waves.js"></script>
+        <script src="../../static/js/jquery.slimscroll.js"></script>
+
+        <!-- App js -->
+        <script src="../../static/js/jquery.core.js"></script>
+        <script src="../../static/js/jquery.app.js"></script>
+
+    </body>
 </html>
