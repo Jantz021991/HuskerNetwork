@@ -32,49 +32,6 @@
                     <div class="logo">
                         <a href="index.html" class="logo">
                             <img src="../../static/images/logo.png" alt="" height="22" class="logo-large">
-=======
-<html lang="en">
-<head>
-    <title>Huskers Network</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</head>
-<body id="app-layout">
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-
-            <!-- Collapsed Hamburger -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#myNavbar">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <!-- Branding Image -->
-            <a class="navbar-brand" href="/">
-                <img src="{% static "images/HuskersNetwork.JPG" %}" height="30" width="200"/>
-            </a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><a href="{% url 'HuskersApp:home' %}">Home</a></li>
-                <li><a href="{% url 'HuskersApp:group' %}">Groups</a></li>
-                <li><a href="{% url 'HuskersApp:venue' %}">Venues</a></li>
-                <li><a href="{% url 'HuskersApp:feed' %}">Hashtag Feed</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                {% if user.is_authenticated %}
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ user.username }}<span class="caret"></span>
->>>>>>> 5658afcb16f30d79109adde9cf021ecba3de49a4
                         </a>
 
                     </div>
@@ -101,7 +58,7 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
-                                    <img src="../../static/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1 pro-user-name">John Smith <i class="mdi mdi-chevron-down"></i> </span>
+                                    <img src="../../static/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1 pro-user-name">{{ user.username }}<i class="mdi mdi-chevron-down"></i> </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                     <!-- item-->
@@ -140,16 +97,16 @@
                         <ul class="navigation-menu">
 
                             <li>
-                                <a href=""><i class="icon-home"></i>Home</a>
+                                <a href="{% url 'HuskersApp:home' %}"><i class="icon-home"></i>Home</a>
                             </li>
                             <li>
-                                <a href=""><i class="icon-people"></i>Groups</a>
+                                <a href="{% url 'HuskersApp:group' %}"><i class="icon-people"></i>Groups</a>
                             </li>
                             <li>
-                                <a href="index.html"><i class="icon-location-pin"></i>Venues</a>
+                                <a href="{% url 'HuskersApp:venue' %}"><i class="icon-location-pin"></i>Venues</a>
                             </li>
                             <li>
-                                <a href="index.html"><i class="icon-globe"></i>Hashtag Feed</a>
+                                <a href="{% url 'HuskersApp:feed' %}"><i class="icon-globe"></i>Hashtag Feed</a>
                             </li>
                             
 
