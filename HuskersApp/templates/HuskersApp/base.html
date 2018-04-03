@@ -28,16 +28,15 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="/">
-                <img src="{% static "images/HuskersNetwork.JPG" %}" />
+                <img src="{% static "images/HuskersNetwork.JPG" %}" height="30" width="200"/>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'HuskersApp:home' %}">Home</a></li>
-                {# TODO: Enable when url and views are updated #}
-{#                <li><a href="{% url 'HuskersApp:group_list' %}">Groups</a></li>#}
-{#                <li><a href="{% url 'HuskersApp:venue_list' %}">Venues</a></li>#}
-{#                <li><a href="{% url 'HuskersApp:hashtag_list' %}">Hashtag Feed</a></li>#}
+                <li><a href="{% url 'HuskersApp:group' %}">Groups</a></li>
+                <li><a href="{% url 'HuskersApp:venue' %}">Venues</a></li>
+                <li><a href="{% url 'HuskersApp:feed' %}">Hashtag Feed</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
