@@ -17,6 +17,26 @@ def home(request):
     groups = Group.objects.count()
     members = User.objects.count()
     return render(request, 'HuskersApp/home.html',
+                  {'HuskersApp': home})
+
+
+def group(request):
+    return render(request, 'HuskersApp/group.html',
+                  {'HuskersApp': group})
+
+
+def venue(request):
+    return render(request, 'HuskersApp/venue.html',
+                  {'HuskersApp': venue})
+
+def feed(request):
+    return render(request, 'HuskersApp/feed.html',
+                  {'HuskersApp': feed})
+
+
+def venue_detail(request):
+    return render(request, 'HuskersApp/venue_detail.html',
+                  {'HuskersApp': venue_detail})
                   {'HuskersApp': home,
                   'posts': posts,
                   'groups': groups,
@@ -171,3 +191,4 @@ def group_edit(request, pk):
         form = GroupForm(instance=venue)
     return render(request, 'HuskersApp/group_edit.html',
                 {'form': form})
+
