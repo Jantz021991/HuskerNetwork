@@ -17,7 +17,9 @@
 
                 <div class="row">
                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4"><i class="mdi mdi-plus-circle"></i> Create New Group</button>
+                        <a href="{% url 'HuskersApp:group_new' %}">
+                        <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4" ><i class="mdi mdi-plus-circle" ></i> Create New Group</button></a>
+
                     </div>
                     
                 </div>
@@ -59,7 +61,9 @@
                     </div>
                     <div class="col-4">
                         <div class="card-box">
-                            <h4 class="m-b-30 m-t-0 header-title">APIs</h4>
+                            <a href="https://www.accuweather.com/en/us/omaha-ne/68102/weather-forecast/349291" class="aw-widget-legal"></a>
+                            <div id="awcc1522808060733" class="aw-widget-current"  data-locationkey="349291" data-unit="f" data-language="en-us" data-useip="true" data-uid="awcc1522808060733"></div>
+                            <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
                         </div>
                     </div>
                 </div>

@@ -26,6 +26,7 @@ class Group(models.Model):
     name = models.CharField(max_length=200)
     venue = models.ForeignKey(Venue, related_name='group_venue')
     meeting_time = models.TimeField()
+    group_details = models.CharField(max_length=500, null=True)
     groupAdmin = models.ForeignKey(User, related_name='group_admin')
     hashtag = models.CharField(max_length=100)
     users = models.ManyToManyField(User)

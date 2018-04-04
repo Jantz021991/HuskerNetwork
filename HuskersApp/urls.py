@@ -18,9 +18,9 @@ urlpatterns = [
     url(r'^groups/$', views.group_list, name='group_list'),
     url(r'^groups/(?P<pk>\d+)/detail/$', views.group_detail, name='group_detail'),
     url(r'^groups/create/$', views.group_new, name='group_new'),
-    url(r'^groups/(?P<pk>\d+)/edit/$', views.group_edit, name='group_edit'),
-    #TODO: Add URL for Group Delete 
+    url(r'^groups/(?P<pk>\d+)/edit/$', views.group_edit, name='group_edit'),]
 
 
 
-urlpatterns = format_suffix_patterns(urlpatterns)
+
+#urlpatterns = format_suffix_patterns(urlpatterns)

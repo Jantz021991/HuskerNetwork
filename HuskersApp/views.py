@@ -36,7 +36,7 @@ def feed(request):
 
 def venue_detail(request):
     return render(request, 'HuskersApp/venue_detail.html',
-                  {'HuskersApp': venue_detail})
+                  {'HuskersApp': venue_detail},
                   {'HuskersApp': home,
                   'posts': posts,
                   'groups': groups,
@@ -94,7 +94,7 @@ def venue_new(request):
                             {'venues': venues})
 
     else:
-        form = VenueForm
+        form = VenueForm()
     return render(request, 'HuskersApp/venue_new.html',
                     {'form': form})
 
@@ -160,7 +160,7 @@ def group_new(request):
                             {'groups': groups})
 
     else:
-        form = GroupForm
+        form = GroupForm()
     return render(request, 'HuskersApp/group_new.html',
                     {'form': form})
 
