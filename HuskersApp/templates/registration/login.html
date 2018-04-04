@@ -24,4 +24,12 @@
             </div>
 
     </form>
+      <form method="post" action="{% url 'password_reset' %}">
+                             {% csrf_token %}
+
+                                    <input type="submit" value="Forgot Password"/>
+                                    <a href=""
+
+                                    <input type="hidden" name="password_reset" value="{{ password_reset }}"/>
+                        </form>
 {% endblock %}
