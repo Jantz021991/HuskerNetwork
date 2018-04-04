@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+import requests
 
 
 # Models for Huskers Network
@@ -20,6 +21,15 @@ class Venue(models.Model):
 
     class Meta:
         ordering = ('name',)
+
+    def venue_weather(self):
+        api_address = 'http://api.openweathermap.org/data/2.5/weather?appid=1c20b22acd0d5d1f853c04e0bcc77011&q='
+        city = str(self.city)
+        url = api_address + city
+        res = requests.get(url).json()
+        # cityId = res.id
+        return res
+
 
 
 class Group(models.Model):
