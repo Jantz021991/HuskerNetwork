@@ -11,7 +11,7 @@ class VenueForm(forms.ModelForm):
 class GroupForm(forms.ModelForm):
     class Meta:
         model = Group
-        fields = ('name', 'venue', 'meeting_time', 'groupAdmin', 'hashtag', 'users')
+        fields = ('name', 'venue', 'meeting_time','group_details', 'groupAdmin', 'hashtag', 'users')
 
 
 class PostForm(forms.ModelForm):

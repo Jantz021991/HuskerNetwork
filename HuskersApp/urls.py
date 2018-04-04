@@ -5,7 +5,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
-    url(r'^group/', views.group, name='group'),
+    # url(r'^group/', views.group, name='group'),
     url(r'^venue/', views.venue, name='venue'),
     url(r'^feed/', views.feed, name='feed'),
     url(r'^venue_detail/', views.venue_detail, name='venue_detail'),
@@ -18,6 +18,11 @@ urlpatterns = [
     url(r'^groups/$', views.group_list, name='group_list'),
     url(r'^groups/(?P<pk>\d+)/detail/$', views.group_detail, name='group_detail'),
     url(r'^groups/create/$', views.group_new, name='group_new'),
-    url(r'^groups/(?P<pk>\d+)/edit/$', views.group_edit, name='group_edit'),]
-    #TODO: Add URL for Group Delete
+    url(r'^groups/(?P<pk>\d+)/edit/$', views.group_edit, name='group_edit'),
+    url(r'^password/$', views.change_password, name='change_password'),
+    ]
+
+
+
+
 #urlpatterns = format_suffix_patterns(urlpatterns)

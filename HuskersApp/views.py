@@ -9,6 +9,10 @@ from rest_framework.response import Response
 from .models import *
 from django.http import HttpResponse
 from .serializers import *
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
+from django.utils.translation import gettext as _
 
 # Create your views here.
 
@@ -18,12 +22,6 @@ def home(request):
     members = User.objects.count()
     return render(request, 'HuskersApp/home.html',
                   {'HuskersApp': home})
-
-
-def group(request):
-    return render(request, 'HuskersApp/group.html',
-                  {'HuskersApp': group})
-
 
 def venue(request):
     return render(request, 'HuskersApp/venue.html',
@@ -36,8 +34,11 @@ def feed(request):
 
 def venue_detail(request):
     return render(request, 'HuskersApp/venue_detail.html',
-                  {'HuskersApp': venue_detail}
-                  )
+                  {'HuskersApp': venue_detail},
+                  {'HuskersApp': home,
+                  'posts': posts,
+                  'groups': groups,
+                  'members': members})
 
 """
 Manage Venues
@@ -91,7 +92,7 @@ def venue_new(request):
                             {'venues': venues})
 
     else:
-        form = VenueForm
+        form = VenueForm()
     return render(request, 'HuskersApp/venue_new.html',
                     {'form': form})
 
@@ -109,10 +110,14 @@ def venue_detail(request, pk):
     # Based on venue Detail page in mockups
     venue = get_object_or_404(Venue, pk=pk)
     # Get all groups of which the venue is part of
-    groups = Group.objects.filter(venue=pk);
+    groups = Group.objects.filter(venue=pk)
+    venue_weather_data = venue.venue_weather()
+    city_id = venue_weather_data["id"]
     return render(request, 'HuskersApp/venue_detail.html',
                     {'venue': venue,
-                    'groups': groups})
+                     'groups': groups,
+                     'cityId': city_id,
+                     })
     
 
 """
@@ -157,7 +162,7 @@ def group_new(request):
                             {'groups': groups})
 
     else:
-        form = GroupForm
+        form = GroupForm()
     return render(request, 'HuskersApp/group_new.html',
                     {'form': form})
 
@@ -189,3 +194,20 @@ def group_edit(request, pk):
     return render(request, 'HuskersApp/group_edit.html',
                 {'form': form})
 
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, _('Your password was successfully updated!'))
+            return redirect('/')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'registration/change_password.html', {
+        'form': form
+    })
