@@ -58,7 +58,7 @@
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                 {% if user.is_authenticated %}
                                 <!-- item-->
-                                <a href="" class="dropdown-item notify-item">
+                                <a href="{% url 'HuskersApp:change_password' %}" class="dropdown-item notify-item">
                                     <i class="fi-lock"></i>
                                     <span>Change Password</span>
                                 </a>

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'HuskersApp',
     'rest_framework',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
