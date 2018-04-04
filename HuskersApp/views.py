@@ -23,12 +23,6 @@ def home(request):
     return render(request, 'HuskersApp/home.html',
                   {'HuskersApp': home})
 
-
-def group(request):
-    return render(request, 'HuskersApp/group.html',
-                  {'HuskersApp': group})
-
-
 def venue(request):
     return render(request, 'HuskersApp/venue.html',
                   {'HuskersApp': venue})

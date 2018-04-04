@@ -31,13 +31,15 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+
     'django.contrib.auth',
+    'HuskersApp',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'HuskersApp',
+
     'rest_framework',
     'widget_tweaks',
 ]
@@ -133,3 +135,11 @@ LOGIN_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = 'msdfall2017team3@gmail.com'
+EMAIL_HOST_PASSWORD = 'hlmoijelwgikzkrz'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Huskers Network< msdfall2017team3@gmail.com>'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
