@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from .models import Group, Venue, Post, Player
 
 
+
+
+
 # Register your models here.
 
 
@@ -12,6 +15,8 @@ class VenueList(admin.ModelAdmin):
     list_filter = ('name', 'city', 'state')
     search_fields = ('name', 'city', 'state')
 
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ['user', 'date_of_birth']
 
 class GroupList(admin.ModelAdmin):
     list_display = ('name', 'venue', 'meeting_time', 'groupAdmin', 'hashtag',)
@@ -35,7 +40,7 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-
+admin.site.register(Player,ProfileAdmin)
 admin.site.register(Group, GroupList)
 admin.site.register(Venue, VenueList)
 admin.site.register(Post, PostList)

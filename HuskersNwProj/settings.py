@@ -143,3 +143,7 @@ EMAIL_HOST_PASSWORD = 'hlmoijelwgikzkrz'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Huskers Network< msdfall2017team3@gmail.com>'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
