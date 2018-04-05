@@ -47,7 +47,7 @@
 
                         <div class="form-group m-b-20 row">
                             <div class="col-12">
-                                <label for="username">Username</label>
+                                <label for="id_username">Username</label>
                                 <input type="text" class="form-control" name="username" required id="id_username" autofocus maxlength="254" placeholder="Enter username">
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
@@ -56,7 +56,7 @@
                         <div class="form-group row m-b-20">
                             <div class="col-12">
                                 <a href="{% url 'password_reset' %}" class="text-muted pull-right"><small>Forgot your password?</small></a>
-                                <label for="password">Password</label>
+                                <label for="id_password">Password</label>
                                 <input type="password" class="form-control" name="password" required id="id_password" placeholder="Password">
                             </div>
                         </div>
@@ -84,7 +84,7 @@
 
                     <div class="row m-t-50">
                         <div class="col-sm-12 text-center">
-                            <p class="text-muted">Don't have an account? <a href="{}" class="text-dark m-l-5"><b>Sign Up</b></a></p>
+                            <p class="text-muted">Don't have an account? <a href="{% url 'HuskersApp:register' %}" class="text-dark m-l-5"><b>Sign Up</b></a></p>
 
                         </div>
                     </div>
