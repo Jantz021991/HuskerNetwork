@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
@@ -35,8 +34,9 @@ def feed(request):
 
 def register(request):
     if request.method == 'POST':
+        print("Inside Register method")
         form = UserRegistrationForm(request.POST)
-        if user_form.is_valid():
+        if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
