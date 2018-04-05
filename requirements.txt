@@ -13,3 +13,9 @@ requests==2.18.4
 simplejson==3.11.1
 urllib3==1.22
 whitenoise==3.3.1
+<<<<<<< HEAD
+=======
+requests
+django-widget-tweaks
+pip install Pillow==2.9.0
+>>>>>>> ec6ca21615699aeac65370a55de817e96b28242c

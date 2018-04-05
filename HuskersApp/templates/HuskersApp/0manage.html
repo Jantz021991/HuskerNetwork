@@ -1,0 +1,79 @@
+{% extends 'HuskersApp/base.html' %}
+{%  load staticfiles %}
+
+
+{% block content %}
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            
+            <h4 class="page-title">Manage Account</h4>
+        </div>
+    </div>
+</div>
+<!-- end page title end breadcrumb -->
+
+<div class="row">
+    <div class="col-lg-9 col-m-12">
+        <div class="card-box">
+            <p class="text-muted m-b-30 font-14">
+                Please tell more about yourself
+            </p>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="p-20">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">Date of Birth</label>
+                                <div class="col-10">
+                                    <input class="form-control" type="date" name="date">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">Profile Picture</label>
+                                <div class="col-10">
+                                    <input type="file" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">Favorite Team</label>
+                                <div class="col-10">
+                                    <select class="form-control">
+                                        <option>Barcelona</option>
+                                        <option>Arsenal</option>
+                                        <option>Manchester</option>
+                                        <option>Chelsea</option>
+                                        <option>Real Madrid</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">Current Location</label>
+                                <div class="col-10">
+                                    <input type="text" class="form-control" value="Some text value...">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">Short Introduction</label>
+                                <div class="col-10">
+                                    <textarea class="form-control" rows="5"></textarea>
+                                </div>
+                            </div>
+
+                           
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end row -->
+        </div> <!-- end card-box -->
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+
+{% endblock %}
