@@ -1,36 +1,108 @@
-{% extends "HuskersApp/base.html" %} 
-{% block content %} 
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <title>HuskersNetwork</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-{% if form.errors %}
-<p>
-    Your username and password didn't match. Please try again.
-</p>
-{% endif %}
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../../static/images/favicon.ico">
 
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <div class="form-group col-md-6" style="padding-top: 50px">
-        <label for="id_username">Username:</label>
-        <input type="text" class="form-control" name="username" required id="id_username" autofocus maxlength="254" placeholder="Enter username">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group col-md-6">
-        <label for="id_password">Password:</label>
-        <input type="password" class="form-control" name="password" required id="id_password" placeholder="Password">
-    </div>
-    <div class="col-md-6" style="padding: 20px 0px 80px 80px;">
-        <div class="row">
-            <div class="col-md-3">
-                <input type="submit" value="Login" class="btn btn-primary btn-lg " />
-                <input type="hidden" name="next" value="{{ next }}" />
+    <!-- App css -->
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/css/style.css" rel="stylesheet" type="text/css" />
+
+    <script src="../../static/js/modernizr.min.js"></script>
+</head>
+
+    <body>
+
+        <!-- Begin page -->
+        <div class="accountbg" style="background: url('../../static/images/bg-1.jpg');background-size: cover;"></div>
+
+        <div class="wrapper-page account-page-full">
+
+            <div class="card">
+                <div class="card-block">
+
+                    <div class="account-box">
+
+                        <div class="card-box p-5">
+                            <h2 class="text-uppercase text-center pb-4">
+                                <a href="{}" class="text-success">
+                                    <span><img src="../../static/images/logo.png" alt="" height="26"></span>
+                                </a>
+                            </h2>
+
+                            <!-- <form class="" action="#"> -->
+                                    <form method="post" action="{% url 'login' %}">
+
+                                <div class="form-group m-b-20 row">
+                                    <div class="col-12">
+                                        <label for="username">Username</label>
+                                        <input class="form-control" id="username" required="" placeholder="Enter your Username">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row m-b-20">
+                                    <div class="col-12">
+                                        <a href="{% url 'password_reset' %}" class="text-muted pull-right"><small>Forgot your password?</small></a>
+                                        <label for="password">Password</label>
+                                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row text-center m-t-10">
+                                    <div class="col-12">
+                                        <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Sign In</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <div class="row m-t-50">
+                                <div class="col-12">
+                                    <button type="button" class="btn btn-facebook btn-block waves-effect waves-light">
+                                        <i class="fa fa-facebook m-r-15"></i> Login with Facebook
+                                    </button>
+                                    <button type="button" class="btn btn-twitter btn-block waves-effect waves-light">
+                                        <i class="fa fa-twitter m-r-15"></i> Login with Twitter
+                                    </button>
+                                    <button type="button" class="btn btn-googleplus btn-block waves-effect waves-light">
+                                        <i class="fa fa-google-plus m-r-15"></i> Login with Google
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row m-t-50">
+                                <div class="col-sm-12 text-center">
+                                    <p class="text-muted">Don't have an account? <a href="{}" class="text-dark m-l-5"><b>Sign Up</b></a></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="col-md-3">
-                <a href="{% url 'password_reset' %}">
-                    <input type="button" value="Forgot Password" class="btn btn-light btn-lg" />
-                    <input type="hidden" name="password_reset" value="{{ password_reset }}" />
-                </a>
+
+            <div class="m-t-40 text-center">
+                <p class="account-copyright">2018 © HuskersNetwork</p>
             </div>
+
         </div>
-    </div>
-</form>
-{% endblock %}
+
+    <!-- jQuery  -->
+    <script src="../../static/js/jquery.min.js"></script>
+    <script src="../../static/js/popper.min.js"></script>
+    <script src="../../static/js/bootstrap.min.js"></script>
+    <script src="../../static/js/waves.js"></script>
+    <script src="../../static/js/jquery.slimscroll.js"></script>
+
+    <!-- App js -->
+    <script src="../../static/js/jquery.core.js"></script>
+    <script src="../../static/js/jquery.app.js"></script>
+
+    </body>
+</html>

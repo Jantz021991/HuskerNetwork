@@ -24,6 +24,7 @@ def home(request):
     return render(request, 'HuskersApp/home.html',
                   {'HuskersApp': home})
 
+@login_required
 def venue(request):
     return render(request, 'HuskersApp/venue.html',
                   {'HuskersApp': venue})
