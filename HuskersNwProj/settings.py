@@ -158,7 +158,6 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Huskers Network< msdfall2017team3@gmail.com>'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-<<<<<<< HEAD
 # Update database configuration with $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
@@ -171,8 +170,6 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 
-=======
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
->>>>>>> ec6ca21615699aeac65370a55de817e96b28242c
