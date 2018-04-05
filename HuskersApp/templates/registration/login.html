@@ -20,127 +20,134 @@
 
 <body>
 
-<!-- Begin page -->
-<div class="accountbg" style="background: url('../../static/images/bg-1.jpg');background-size: cover;"></div>
+    <!-- Begin page -->
+    <div class="accountbg" style="background: url('../../static/images/bg-1.jpg');background-size: cover;"></div>
 
-<div class="wrapper-page account-page-full">
+    <div class="wrapper-page account-page-full">
 
-    <div class="card">
-        <div class="card-block">
+        <div class="card">
+            <div class="card-block">
 
-            <div class="account-box">
+                <div class="account-box">
 
-                <div class="card-box p-5">
-                    <h2 class="text-uppercase text-center pb-4">
-                        <a href="{}" class="text-success">
+                    <div class="card-box p-5">
+                        <h2 class="text-uppercase text-center pb-4">
+                            <a href="{}" class="text-success">
                                 <span>
                                     <img src="../../static/images/logo.png" alt="" height="26">
                                 </span>
-                        </a>
-                    </h2>
+                            </a>
+                        </h2>
 
-                    <!-- <form class="" action="#"> -->
-                    <form method="post" action="{% url 'login' %}">
-                        {% csrf_token %}
+                        <!-- <form class="" action="#"> -->
+                        <form method="post" action="{% url 'login' %}">
+                            {% csrf_token %}
 
-                        <div class="form-group m-b-20 row">
+                            <div class="form-group m-b-20 row">
+                                <div class="col-12">
+                                    <label for="id_username">Username</label>
+                                    <input class="form-control" name="username" required id="id_username" placeholder="Enter your Username" type="text">
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group row m-b-20">
+                                <div class="col-12">
+                                    <a href="{% url 'password_reset' %}" class="text-muted pull-right">
+                                        <small>Forgot your password?</small>
+                                    </a>
+                                    <label for="id_password">Password</label>
+                                    <input class="form-control" type="password" name="password" required id="id_password" placeholder="Enter your password">
+                                </div>
+                            </div>
+
+                            <div class="form-group row text-center m-t-10">
+                                <div class="col-12">
+                                    <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Sign In</button>
+                                </div>
+                            </div>
+
+                        </form>
+                        <div class="row m-t-50">
                             <div class="col-12">
-                                <label for="id_username">Username</label>
-                                <input class="form-control" name="username" required id="id_username" placeholder="Enter your Username" type="text">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                <button type="button" class="btn btn-facebook btn-block waves-effect waves-light">
+                                    <i class="fa fa-facebook m-r-15"></i> Login with Facebook
+                                </button>
+                                <button type="button" class="btn btn-twitter btn-block waves-effect waves-light">
+                                    <i class="fa fa-twitter m-r-15"></i> Login with Twitter
+                                </button>
+                                <button type="button" class="btn btn-googleplus btn-block waves-effect waves-light">
+                                    <i class="fa fa-google-plus m-r-15"></i> Login with Google
+                                </button>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-group row m-b-20">
-                            <div class="col-12">
-                                <a href="{% url 'password_reset' %}" class="text-muted pull-right">
-                                    <small>Forgot your password?</small>
-                                </a>
-                                <label for="id_password">Password</label>
-                                <input class="form-control" type="password" name="password" required id="id_password" placeholder="Enter your password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row text-center m-t-10">
-                            <div class="col-12">
-                                <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Sign In</button>
-                            </div>
-                        </div>
-
-                    </form>
                     <div class="row m-t-50">
-                        <div class="col-12">
-                            <button type="button" class="btn btn-facebook btn-block waves-effect waves-light">
-                                <i class="fa fa-facebook m-r-15"></i> Login with Facebook
-                            </button>
-                            <button type="button" class="btn btn-twitter btn-block waves-effect waves-light">
-                                <i class="fa fa-twitter m-r-15"></i> Login with Twitter
-                            </button>
-                            <button type="button" class="btn btn-googleplus btn-block waves-effect waves-light">
-                                <i class="fa fa-google-plus m-r-15"></i> Login with Google
-                            </button>
+                        <div class="col-sm-12 text-center">
+<<<<<<< HEAD
+                            <p class="text-muted">Don't have an account? <a href="../../register" class="text-dark m-l-5"><b>Sign Up</b></a></p>
+
+=======
+                            <p class="text-muted">Don't have an account?
+                                <a href="{% url 'HuskersApp:register' %}" class="text-dark m-l-5">
+                                    <b>Sign Up</b>
+                                </a>
+                            </p>
+>>>>>>> cb76cc7b46e5a7b773e64671fa27aae82a51c4cf
                         </div>
+                    </div>
+                </div>
+
+                </form>
+                <div class="row m-t-50">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-facebook btn-block waves-effect waves-light">
+                            <i class="fa fa-facebook m-r-15"></i> Login with Facebook
+                        </button>
+                        <button type="button" class="btn btn-twitter btn-block waves-effect waves-light">
+                            <i class="fa fa-twitter m-r-15"></i> Login with Twitter
+                        </button>
+                        <button type="button" class="btn btn-googleplus btn-block waves-effect waves-light">
+                            <i class="fa fa-google-plus m-r-15"></i> Login with Google
+                        </button>
                     </div>
                 </div>
 
                 <div class="row m-t-50">
                     <div class="col-sm-12 text-center">
-
-                        <p class="text-muted">Don't have an account? <a href="../../register" class="text-dark m-l-5"><b>Sign Up</b></a></p>
+                        <p class="text-muted">Don't have an account?
+                            <a href="{}" class="text-dark m-l-5">
+                                <b>Sign Up</b>
+                            </a>
+                        </p>
 
                     </div>
                 </div>
+
             </div>
-
-            </form>
-            <div class="row m-t-50">
-                <div class="col-12">
-                    <button type="button" class="btn btn-facebook btn-block waves-effect waves-light">
-                        <i class="fa fa-facebook m-r-15"></i> Login with Facebook
-                    </button>
-                    <button type="button" class="btn btn-twitter btn-block waves-effect waves-light">
-                        <i class="fa fa-twitter m-r-15"></i> Login with Twitter
-                    </button>
-                    <button type="button" class="btn btn-googleplus btn-block waves-effect waves-light">
-                        <i class="fa fa-google-plus m-r-15"></i> Login with Google
-                    </button>
-                </div>
-            </div>
-
-            <div class="row m-t-50">
-                <div class="col-sm-12 text-center">
-                    <p class="text-muted">Don't have an account?
-                        <a href="{}" class="text-dark m-l-5">
-                            <b>Sign Up</b>
-                        </a>
-                    </p>
-
-                </div>
-            </div>
-
         </div>
+
+    </div>
     </div>
 
-</div>
-</div>
 
+    <div class="m-t-40 text-center">
+        <p class="account-copyright">2018 © HuskersNetwork</p>
+    </div>
 
-<div class="m-t-40 text-center">
-    <p class="account-copyright">2018 © HuskersNetwork</p>
-</div>
+    </div>
 
-</div>
+    <!-- jQuery  -->
+    <script src="../../static/js/jquery.min.js"></script>
+    <script src="../../static/js/popper.min.js"></script>
+    <script src="../../static/js/bootstrap.min.js"></script>
+    <script src="../../static/js/waves.js"></script>
+    <script src="../../static/js/jquery.slimscroll.js"></script>
 
-<!-- jQuery  -->
-<script src="../../static/js/jquery.min.js"></script>
-<script src="../../static/js/popper.min.js"></script>
-<script src="../../static/js/bootstrap.min.js"></script>
-<script src="../../static/js/waves.js"></script>
-<script src="../../static/js/jquery.slimscroll.js"></script>
-
-<!-- App js -->
-<script src="../../static/js/jquery.core.js"></script>
-<script src="../../static/js/jquery.app.js"></script>
+    <!-- App js -->
+    <script src="../../static/js/jquery.core.js"></script>
+    <script src="../../static/js/jquery.app.js"></script>
 
 </body>
 
