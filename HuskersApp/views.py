@@ -53,13 +53,9 @@ def register(request):
             #         {'new_user': new_user})
             return redirect('/')
     else:
-<<<<<<< HEAD
+
         user_form = UserRegistrationForm()
     return render(request, 'registration/register.html', {'user_form': user_form})
-=======
-        form = UserRegistrationForm()
-    return render(request, 'HuskersApp/register.html', {'form': form})
->>>>>>> cb76cc7b46e5a7b773e64671fa27aae82a51c4cf
 
 def venue_detail(request):
     return render(request, 'HuskersApp/venue_detail.html',
