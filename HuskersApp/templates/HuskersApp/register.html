@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>HuskersNetwork</title>
@@ -19,67 +20,69 @@
 
 <body>
 
-<!-- Begin page -->
-<div class="accountbg" style="background: url('../../static/images/bg-1.jpg');background-size: cover;"></div>
+    <!-- Begin page -->
+    <div class="accountbg" style="background: url('../../static/images/bg-1.jpg');background-size: cover;"></div>
 
-<div class="wrapper-page account-page-full">
+    <div class="wrapper-page account-page-full">
 
-    <div class="card">
-        <div class="card-block">
+        <div class="card">
+            <div class="card-block">
 
-            <div class="account-box">
+                <div class="account-box">
 
-                <div class="card-box p-5">
-                    <h2 class="text-uppercase text-center pb-4">
-                        <a href="{}" class="text-success">
-                            <span><img src="../../static/images/logo.png" alt="" height="26"></span>
-                        </a>
-                    </h2>
+                    <div class="card-box p-5">
+                        <h2 class="text-uppercase text-center pb-4">
+                            <a href="{}" class="text-success">
+                                <span>
+                                    <img src="../../static/images/logo.png" alt="" height="26">
+                                </span>
+                            </a>
+                        </h2>
 
-                                                <form method="post" action="{% url 'HuskersApp:register' %}">
-                                                        {% csrf_token %}
-                                                    <p>Please sign up using the following form</p>
-                                                    <div class="form-group m-b-20 row">
-                                                        <div class="col-12">
-                                                            <label for="id_username">Username</label>
-                                                            <input class="form-control" name="username" id="id_username" required="" placeholder="Enter your Username" type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group m-b-20 row">
-                                                        <div class="col-12">
-                                                            <label for="id_first_name">Firstname</label>
-                                                            <input class="form-control" name="first_name" id="id_first_name" required="" placeholder="Enter your Firstname" type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group m-b-20 row">
-                                                        <div class="col-12">
-                                                            <label for="id_email">Email Address</label>
-                                                            <input class="form-control" type="email" name="email" id="id_email" required="" placeholder="Enter your Fistname">
-                                                        </div>
-                                                    </div>
-                    
-                                                    <div class="form-group row m-b-20">
-                                                        <div class="col-12">
-                                                            <label for="id_password1">Password</label>
-                                                            <input class="form-control" type="password" required name="password1" id="id_password1" placeholder="Enter your password">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row m-b-20">
-                                                        <div class="col-12">
-                                                            <label for="id_password2">Repeat Password</label>
-                                                            <input class="form-control" type="password" required name="password2" id="id_password2" placeholder="Enter your password">
-                                                        </div>
-                                                    </div>
-                    
-                                                    <div class="form-group row text-center m-t-10">
-                                                        <div class="col-12">
-                                                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Sign Up</button>
-                                                        </div>
-                                                    </div>
-                    
-                                              </form>
+                        <form method="post" action="{% url 'HuskersApp:register' %}">
+                            {% csrf_token %}
+                            <p>Please sign up using the following form</p>
+                            <div class="form-group m-b-20 row">
+                                <div class="col-12">
+                                    <label for="id_username">Username</label>
+                                    <input class="form-control" name="username" id="id_username" required="" placeholder="Enter your Username" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group m-b-20 row">
+                                <div class="col-12">
+                                    <label for="id_first_name">Firstname</label>
+                                    <input class="form-control" name="first_name" id="id_first_name" required="" placeholder="Enter your Firstname" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group m-b-20 row">
+                                <div class="col-12">
+                                    <label for="id_email">Email Address</label>
+                                    <input class="form-control" type="email" name="email" id="id_email" required="" placeholder="Enter your Fistname">
+                                </div>
+                            </div>
 
-                    <!-- {% block content %}
+                            <div class="form-group row m-b-20">
+                                <div class="col-12">
+                                    <label for="id_password1">Password</label>
+                                    <input class="form-control" type="password" required name="password1" id="id_password1" placeholder="Enter your password">
+                                </div>
+                            </div>
+                            <div class="form-group row m-b-20">
+                                <div class="col-12">
+                                    <label for="id_password2">Repeat Password</label>
+                                    <input class="form-control" type="password" required name="password2" id="id_password2" placeholder="Enter your password">
+                                </div>
+                            </div>
+
+                            <div class="form-group row text-center m-t-10">
+                                <div class="col-12">
+                                    <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Sign Up</button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                        <!-- {% block content %}
                     <form class="" action="." method="post">
                     {% csrf_token %}
                     <p>Please sign up using the following form</p>
@@ -100,28 +103,29 @@
                     </form>
                     {% endblock %} -->
 
+                    </div>
                 </div>
+
             </div>
-
         </div>
+
+        <div class="m-t-40 text-center">
+            <p class="account-copyright">2018 © HuskersNetwork</p>
+        </div>
+
     </div>
 
-    <div class="m-t-40 text-center">
-        <p class="account-copyright">2018 © HuskersNetwork</p>
-    </div>
+    <!-- jQuery  -->
+    <script src="../../static/js/jquery.min.js"></script>
+    <script src="../../static/js/popper.min.js"></script>
+    <script src="../../static/js/bootstrap.min.js"></script>
+    <script src="../../static/js/waves.js"></script>
+    <script src="../../static/js/jquery.slimscroll.js"></script>
 
-</div>
-
-<!-- jQuery  -->
-<script src="../../static/js/jquery.min.js"></script>
-<script src="../../static/js/popper.min.js"></script>
-<script src="../../static/js/bootstrap.min.js"></script>
-<script src="../../static/js/waves.js"></script>
-<script src="../../static/js/jquery.slimscroll.js"></script>
-
-<!-- App js -->
-<script src="../../static/js/jquery.core.js"></script>
-<script src="../../static/js/jquery.app.js"></script>
+    <!-- App js -->
+    <script src="../../static/js/jquery.core.js"></script>
+    <script src="../../static/js/jquery.app.js"></script>
 
 </body>
+
 </html>
