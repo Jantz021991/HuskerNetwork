@@ -1,1 +1,1 @@
-web: gunicorn HuskerNwProj.wsgi --log-file -
+web: gunicorn HuskersNwProj.wsgi --log-file -
