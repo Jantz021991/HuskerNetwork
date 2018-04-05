@@ -51,13 +51,13 @@ def register(request):
         user_form = UserRegistrationForm()
     return render(request, 'HuskersApp/register.html', {'user_form': user_form})
 
-def venue_detail(request):
-    return render(request, 'HuskersApp/venue_detail.html',
-                  {'HuskersApp': venue_detail})
-                  # {'HuskersApp': home,
-                  # 'posts': posts,
-                  # 'groups': groups,
-                  # 'members': members})
+# def venue_detail(request):
+#     return render(request, 'HuskersApp/venue_detail.html',
+#                   {'HuskersApp': venue_detail},
+#                   {'HuskersApp': home,
+#                   'posts': posts,
+#                   'groups': groups,
+#                   'members': members})
 
 """
 Manage Venues
