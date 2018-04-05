@@ -50,7 +50,7 @@ def register(request):
                     {'new_user': new_user})
     else:
         user_form = UserRegistrationForm()
-    return render(request, 'registration/register.html', {'user_form': user_form})
+    return render(request, 'HuskersApp/register.html', {'user_form': user_form})
 
 def venue_detail(request):
     return render(request, 'HuskersApp/venue_detail.html',

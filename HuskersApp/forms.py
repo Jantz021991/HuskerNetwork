@@ -20,7 +20,6 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('post_text', 'group', 'user')
 
-
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
