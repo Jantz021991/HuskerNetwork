@@ -1,6 +1,9 @@
 certifi==2018.1.18
 chardet==3.0.4
+<<<<<<< HEAD
 defusedxml==0.5.0
+=======
+>>>>>>> 62664aa9e642b741b54d0ae7cf80cf4b4e1edf16
 dj-database-url==0.4.2
 Django==1.11.9
 django-mathfilters==0.4.0
@@ -8,14 +11,18 @@ django-widget-tweaks==1.4.2
 djangorestframework==3.6.3
 gunicorn==19.7.1
 idna==2.6
+<<<<<<< HEAD
 oauthlib==2.0.7
 Pillow==5.1.0
+=======
+>>>>>>> 62664aa9e642b741b54d0ae7cf80cf4b4e1edf16
 psycopg2==2.7.1
 PyJWT==1.6.1
 python-social-auth==0.3.6
 python3-openid==3.1.0
 pytz==2017.2
 requests==2.18.4
+<<<<<<< HEAD
 requests-oauthlib==0.8.0
 simplejson==3.11.1
 six==1.11.0
@@ -23,3 +30,9 @@ social-auth-app-django==2.1.0
 social-auth-core==1.7.0
 urllib3==1.22
 whitenoise==3.3.1
+=======
+simplejson==3.11.1
+urllib3==1.22
+whitenoise==3.3.1
+Pillow==2.9.0
+>>>>>>> 62664aa9e642b741b54d0ae7cf80cf4b4e1edf16

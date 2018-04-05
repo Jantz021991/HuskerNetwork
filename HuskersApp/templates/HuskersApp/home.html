@@ -1,6 +1,5 @@
-{% extends 'HuskersApp/base.html' %}
-{%  load staticfiles %}
-
+{% extends 'HuskersApp/base.html' %} 
+{% load staticfiles %} 
 
 {% block content %}
 
@@ -8,7 +7,6 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="page-title-box">
-
             <h4 class="page-title">Home</h4>
         </div>
     </div>
@@ -18,19 +16,18 @@
 <div class="row">
     <div class="col-sm-4">
         <a href="{% url 'HuskersApp:group_new' %}">
-            <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4"><i
-                    class="mdi mdi-plus-circle"></i> Create New Group
+            <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4">
+                <i class="mdi mdi-plus-circle"></i> Create New Group
             </button>
         </a>
     </div>
     <div class="col-sm-4">
-            <a href="{% url 'HuskersApp:venue_new' %}">
-                <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4"><i
-                        class="mdi mdi-plus-circle"></i> Create New Venue
-                </button>
-            </a>
-        </div>
-
+        <a href="{% url 'HuskersApp:venue_new' %}">
+            <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4">
+                <i class="mdi mdi-plus-circle"></i> Create New Venue
+            </button>
+        </a>
+    </div>
 </div>
 <!-- end row -->
 
@@ -40,15 +37,17 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-12">
                     <div class="thumb-lg member-thumb m-b-10 mx-auto">
-                        <img src="../../static/images/users/avatar.jpg" class="rounded-circle img-thumbnail"
-                             alt="profile-image">
+                        <img src="../../static/images/users/avatar.jpg" class="rounded-circle img-thumbnail" alt="profile-image">
                     </div>
                     <h4 class="m-b-5" style="text-align:center">Devonte Graham</h4>
                 </div>
                 <div class="col-9">
-                    <p>posted in <a href="">Friday Group</a> at <u>12 March 2018 3:00 PM</u></p>
-                    <p>jhh sdhkhdskjh kdshdskhsdk ksdhkhsdk dskjsdh sdkhsdkjhsd kshdkjsdh ksdh ksdhsdkh dskdshsdk h sdk
-                        hsdksdh ksdhsdkhsdksdkjhsd ksdhk</p>
+                    <p>posted in
+                        <a href="">Friday Group</a> at
+                        <u>12 March 2018 3:00 PM</u>
+                    </p>
+                    <p>jhh sdhkhdskjh kdshdskhsdk ksdhkhsdk dskjsdh sdkhsdkjhsd kshdkjsdh ksdh ksdhsdkh dskdshsdk h sdk hsdksdh
+                        ksdhsdkhsdksdkjhsd ksdhk</p>
                 </div>
             </div>
         </div>
@@ -57,15 +56,17 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-12">
                     <div class="thumb-lg member-thumb m-b-10 mx-auto">
-                        <img src="../../static/images/users/avatar.jpg" class="rounded-circle img-thumbnail"
-                             alt="profile-image">
+                        <img src="../../static/images/users/avatar.jpg" class="rounded-circle img-thumbnail" alt="profile-image">
                     </div>
                     <h4 class="m-b-5" style="text-align:center">Devonte Graham</h4>
                 </div>
                 <div class="col-9">
-                    <p>posted in <a href="">Friday Group</a> at <u>12 March 2018 3:00 PM</u></p>
-                    <p>jhh sdhkhdskjh kdshdskhsdk ksdhkhsdk dskjsdh sdkhsdkjhsd kshdkjsdh ksdh ksdhsdkh dskdshsdk h sdk
-                        hsdksdh ksdhsdkhsdksdkjhsd ksdhk</p>
+                    <p>posted in
+                        <a href="">Friday Group</a> at
+                        <u>12 March 2018 3:00 PM</u>
+                    </p>
+                    <p>jhh sdhkhdskjh kdshdskhsdk ksdhkhsdk dskjsdh sdkhsdkjhsd kshdkjsdh ksdh ksdhsdkh dskdshsdk h sdk hsdksdh
+                        ksdhsdkhsdksdkjhsd ksdhk</p>
                     <img src="../../static/images/download.jpg">
                 </div>
             </div>
@@ -74,21 +75,24 @@
     </div>
     <div class="col-4">
         <div class="card-box">
-            <a href="https://www.accuweather.com/en/us/omaha-ne/68102/weather-forecast/349291"
-               class="aw-widget-legal"></a>
-            <div id="awcc1522808060733" class="aw-widget-current" data-locationkey="349291" data-unit="f"
-                 data-language="en-us" data-useip="true" data-uid="awcc1522808060733"></div>
+            <a href="https://www.accuweather.com/en/us/omaha-ne/68102/weather-forecast/349291" class="aw-widget-legal"></a>
+            <div id="awcc1522808060733" class="aw-widget-current" data-locationkey="349291" data-unit="f" data-language="en-us" data-useip="true"
+                data-uid="awcc1522808060733"></div>
             <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
         </div>
 
-        <div id="openweathermap-widget-15"></div>
+
         <p></p>
         <p style="background-color: #00aced; text-align: center">
-        <a href="https://www.livescore.bz">Barcelona scores</a>
-<script type="text/javascript" src="https://www.livescore.bz/api.1.1.js" api="livescore" callback="" BZwidth="300" BZcolor="Black" async template="simple-auto"></script>
-        <p>&nbsp;</p>
+            <a href="https://www.livescore.bz">Barcelona scores</a>
+            <script type="text/javascript" src="https://www.livescore.bz/api.1.1.js" api="livescore" callback="" BZwidth="300" BZcolor="Black"
+                async template="simple-auto"></script>
+            <p>&nbsp;</p>
         </p>
-{#        <script type="text/javascript" src="https://www.livescore.bz/api.livescore.0.1.js" api="livescore" async></script><a href="https://www.livescore.bz" sport="football(soccer)" data-1="Barcelona" lang="en">latest</a>#}
+        {#
+        <script type="text/javascript" src="https://www.livescore.bz/api.livescore.0.1.js" api="livescore" async></script>
+        <a href="https://www.livescore.bz" sport="football(soccer)" data-1="Barcelona" lang="en">latest</a>#}
+
 
 
     </div>

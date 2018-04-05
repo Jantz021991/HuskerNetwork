@@ -24,6 +24,7 @@ def home(request):
     return render(request, 'HuskersApp/home.html',
                   {'HuskersApp': home})
 
+@login_required
 def venue(request):
     return render(request, 'HuskersApp/venue.html',
                   {'HuskersApp': venue})
@@ -53,11 +54,11 @@ def register(request):
 
 def venue_detail(request):
     return render(request, 'HuskersApp/venue_detail.html',
-                  {'HuskersApp': venue_detail},
-                  {'HuskersApp': home,
-                  'posts': posts,
-                  'groups': groups,
-                  'members': members})
+                  {'HuskersApp': venue_detail})
+                  # {'HuskersApp': home,
+                  # 'posts': posts,
+                  # 'groups': groups,
+                  # 'members': members})
 
 """
 Manage Venues

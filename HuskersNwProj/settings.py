@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,9 +24,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'rjd^l47*sjsc4-oh-%el*0pm6$67osqi82*4g1dp7pw@-o&ikr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
 
 
 # Application definition
@@ -39,8 +46,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'social.apps.django_app.default',
     'social_django',
+=======
+>>>>>>> 62664aa9e642b741b54d0ae7cf80cf4b4e1edf16
     'rest_framework',
     'widget_tweaks',
 ]
@@ -81,20 +91,17 @@ WSGI_APPLICATION = 'HuskersNwProj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dbdauaas1adeai',
+        'USER': 'dxpuhdpwhcslvx',
+        'PASSWORD': 'fffd7ceb6fae2d092afcc358c7c089a3da319fb6c6095ffeaecb0ca262429c1f',
+        'HOST': 'ec2-107-21-126-193.compute-1.amazonaws.com',
+        'PORT': 5432,
     }
+
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres',
-#         'USER': 'postgres',
-#         'HOST': 'db',
-#         'PORT': 5432,
-#     }
-# }
+
 
 
 # Password validation
@@ -135,6 +142,16 @@ LOGIN_REDIRECT_URL = '/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_URL = '/static/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),)
+
+
 STATIC_URL = '/static/'
 
 EMAIL_HOST = 'smtp.gmail.com'
@@ -145,9 +162,20 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Huskers Network< msdfall2017team3@gmail.com>'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+# Update database configuration with $DATABASE_URL.
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+<<<<<<< HEAD
 
 # # python-social-auth settings
 # AUTHENTICATION_BACKENDS = (
@@ -157,3 +185,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 #
 #     'django.contrib.auth.backends.ModelBackend',
 # )
+=======
+>>>>>>> 62664aa9e642b741b54d0ae7cf80cf4b4e1edf16

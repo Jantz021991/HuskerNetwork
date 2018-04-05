@@ -1,229 +1,250 @@
-{% extends 'HuskersApp/base.html' %}
-{%  load staticfiles %}
-
-
+{% extends 'HuskersApp/base.html' %} 
+{% load staticfiles %} 
 {% block content %}
 
-    <!-- Page-Title -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="page-title-box">
-                            
-                            <h4 class="page-title">My Groups</h4>
-                        </div>
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+
+            <h4 class="page-title">My Groups</h4>
+        </div>
+    </div>
+</div>
+<!-- end page title end breadcrumb -->
+
+<div class="row">
+    <div class="col-sm-4">
+        <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4">
+            <i class="mdi mdi-plus-circle"></i> Create New Group</button>
+    </div>
+
+</div>
+<!-- end row -->
+
+{% for group in groups %}
+<div class="row">
+    <div class="col-xl-4">
+        <div class="card-box project-box">
+            <div class="dropdown pull-right">
+                <a href="#" class="dropdown-toggle card-drop arrow-none" data-toggle="dropdown" aria-expanded="false">
+                    <h3 class="m-0 text-muted">
+                        <i class="mdi mdi-dots-horizontal"></i>
+                    </h3>
+                </a>
+            </div>
+            <p class="text-muted text-uppercase mb-0 font-13">Soccer group</p>
+            <h4 class="mt-0 mb-3">
+                <a href="" class="text-dark">{{ group.name }}</a>
+            </h4>
+            <p class="text-muted font-13">{{ group.group_details | truncatechars:100 }}
+                <a href="{% url 'HuskersApp:group_detail' pk=group.pk %}" class="font-600 text-muted">View more</a>
+            </p>
+
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <h3 class="mb-0">12</h3>
+                    <p class="text-muted">Members</p>
+                </li>
+                <li class="list-inline-item">
+                    <h3 class="mb-0">452</h3>
+                    <p class="text-muted">Posts</p>
+                </li>
+            </ul>
+
+            <div class="project-members mb-4">
+                <label class="mr-3">Members :</label>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
+                    <img src="{% static "images/users/avatar-1.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
+
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Michael Zenaty">
+                    <img src="{% static "images/users/avatar-2.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
+
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="James Anderson">
+                    <img src="{% static "images/users/avatar-3.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
+
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
+                    <img src="{% static "images/users/avatar-4.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
+
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Username">
+                    <img src="{% static "images/users/avatar-5.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
+            </div>
+
+            <label class="">Regular Meeting:
+                <span class="text-custom">Friday, Saturday 4PM</span>
+            </label>
+
+        </div>
+    </div>
+    <!-- end col-->
+
+
+</div>
+{% endfor %}
+<!-- end row -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+
+            <h4 class="page-title">All Groups</h4>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="project-sort pull-right">
+            <div class="project-sort-item">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="phase-select">Days to play :</label>
+                        <select class="form-control ml-2 form-control-sm" id="phase-select">
+                            <option>All</option>
+                            <option>Complated</option>
+                            <option>Progress</option>
+                        </select>
                     </div>
-                </div>
-                <!-- end page title end breadcrumb -->
-
-                <div class="row">
-                    <div class="col-sm-4">
-                        <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4"><i class="mdi mdi-plus-circle"></i> Create New Group</button>
+                    <div class="form-group">
+                        <label for="sort-select">Sort By:</label>
+                        <select class="form-control ml-2 form-control-sm" id="sort-select">
+                            <option>New</option>
+                            <option>Name</option>
+                            <option>End date</option>
+                            <option>Start Date</option>
+                        </select>
                     </div>
-                    
-                </div>
-                <!-- end row -->
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end col-->
+</div>
+<br>
+<!-- end row -->
+<div class="row">
+    <div class="col-xl-4">
+        <div class="card-box project-box">
+            <div class="dropdown pull-right">
+                <a href="#" class="dropdown-toggle card-drop arrow-none" data-toggle="dropdown" aria-expanded="false">
+                    <h3 class="m-0 text-muted">
+                        <i class="mdi mdi-dots-horizontal"></i>
+                    </h3>
+                </a>
+            </div>
+            <p class="text-muted text-uppercase mb-0 font-13">Soccer group</p>
+            <h4 class="mt-0 mb-3">
+                <a href="" class="text-dark">Midland Soccer group 5 pm</a>
+            </h4>
+            <p class="text-muted font-13">Lorem Ipsum is simply dummy text of the printing and typesetting industry. When an unknown printer took a galley
+                of type and scrambled it...
+                <a href="#" class="font-600 text-muted">view more</a>
+            </p>
 
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <h3 class="mb-0">12</h3>
+                    <p class="text-muted">Members</p>
+                </li>
+                <li class="list-inline-item">
+                    <h3 class="mb-0">452</h3>
+                    <p class="text-muted">Posts</p>
+                </li>
+            </ul>
 
-                <div class="row">
-                    <div class="col-xl-4">
-                        <div class="card-box project-box">
-                            <div class="dropdown pull-right">
-                                <a href="#" class="dropdown-toggle card-drop arrow-none" data-toggle="dropdown" aria-expanded="false">
-                                    <h3 class="m-0 text-muted"><i class="mdi mdi-dots-horizontal"></i></h3>
-                                </a>
-                            </div>
-                            <p class="text-muted text-uppercase mb-0 font-13">Soccer group</p>
-                            <h4 class="mt-0 mb-3"><a href="" class="text-dark">Midland Soccer group 5 pm</a></h4>
-                            <p class="text-muted font-13">Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. When an unknown printer took a galley of type and
-                                scrambled it...<a href="#" class="font-600 text-muted">view more</a>
-                            </p>
+            <div class="project-members mb-4">
+                <label class="mr-3">Members :</label>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
+                    <img src="../../static/images/users/avatar-1.jpg" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
 
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h3 class="mb-0">12</h3>
-                                    <p class="text-muted">Members</p>
-                                </li>
-                                <li class="list-inline-item">
-                                    <h3 class="mb-0">452</h3>
-                                    <p class="text-muted">Posts</p>
-                                </li>
-                            </ul>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Michael Zenaty">
+                    <img src="../../static/images/users/avatar-2.jpg" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
 
-                            <div class="project-members mb-4">
-                                <label class="mr-3">Members :</label>
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
-                                    <img src="../../static/images/users/avatar-1.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="James Anderson">
+                    <img src="../../static/images/users/avatar-3.jpg" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
 
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Michael Zenaty">
-                                    <img src="../../static/images/users/avatar-2.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
+                    <img src="../../static/images/users/avatar-4.jpg" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
 
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="James Anderson">
-                                    <img src="../../static/images/users/avatar-3.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Username">
+                    <img src="../../static/images/users/avatar-5.jpg" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
+            </div>
 
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
-                                    <img src="../../static/images/users/avatar-4.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
+            <label class="">Regular Meeting:
+                <span class="text-custom">Friday, Saturday 4PM</span>
+            </label>
 
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Username">
-                                    <img src="../../static/images/users/avatar-5.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
-                            </div>
+        </div>
+    </div>
+    <!-- end col-->
+    <div class="col-xl-4">
+        <div class="card-box project-box">
+            <div class="dropdown pull-right">
+                <a href="#" class="dropdown-toggle card-drop arrow-none" data-toggle="dropdown" aria-expanded="false">
+                    <h3 class="m-0 text-muted">
+                        <i class="mdi mdi-dots-horizontal"></i>
+                    </h3>
+                </a>
+            </div>
+            <p class="text-muted text-uppercase mb-0 font-13">Soccer group</p>
+            <h4 class="mt-0 mb-3">
+                <a href="" class="text-dark">Midland Soccer group 5 pm</a>
+            </h4>
+            <p class="text-muted font-13">Lorem Ipsum is simply dummy text of the printing and typesetting industry. When an unknown printer took a galley
+                of type and scrambled it...
+                <a href="#" class="font-600 text-muted">view more</a>
+            </p>
 
-                            <label class="">Regular Meeting: <span class="text-custom">Friday, Saturday 4PM</span></label>
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <h3 class="mb-0">12</h3>
+                    <p class="text-muted">Members</p>
+                </li>
+                <li class="list-inline-item">
+                    <h3 class="mb-0">452</h3>
+                    <p class="text-muted">Posts</p>
+                </li>
+            </ul>
 
-                        </div>
-                    </div><!-- end col-->
+            <div class="project-members mb-4">
+                <label class="mr-3">Members :</label>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
+                    <img src="../../static/images/users/avatar-1.jpg" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
 
-                    
-                </div>
-                <!-- end row -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="page-title-box">
-                            
-                            <h4 class="page-title">All Groups</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="project-sort pull-right">
-                            <div class="project-sort-item">
-                                <form class="form-inline">
-                                    <div class="form-group">
-                                        <label for="phase-select">Days to play :</label>
-                                        <select class="form-control ml-2 form-control-sm" id="phase-select">
-                                            <option>All</option>
-                                            <option>Complated</option>
-                                            <option>Progress</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="sort-select">Sort By:</label>
-                                        <select class="form-control ml-2 form-control-sm" id="sort-select">
-                                            <option>New</option>
-                                            <option>Name</option>
-                                            <option>End date</option>
-                                            <option>Start Date</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div><!-- end col-->
-                </div>
-                <br>
-                <!-- end row -->
-                <div class="row">
-                    <div class="col-xl-4">
-                        <div class="card-box project-box">
-                            <div class="dropdown pull-right">
-                                <a href="#" class="dropdown-toggle card-drop arrow-none" data-toggle="dropdown" aria-expanded="false">
-                                    <h3 class="m-0 text-muted"><i class="mdi mdi-dots-horizontal"></i></h3>
-                                </a>
-                            </div>
-                            <p class="text-muted text-uppercase mb-0 font-13">Soccer group</p>
-                            <h4 class="mt-0 mb-3"><a href="" class="text-dark">Midland Soccer group 5 pm</a></h4>
-                            <p class="text-muted font-13">Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. When an unknown printer took a galley of type and
-                                scrambled it...<a href="#" class="font-600 text-muted">view more</a>
-                            </p>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Michael Zenaty">
+                    <img src="../../static/images/users/avatar-2.jpg" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
 
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h3 class="mb-0">12</h3>
-                                    <p class="text-muted">Members</p>
-                                </li>
-                                <li class="list-inline-item">
-                                    <h3 class="mb-0">452</h3>
-                                    <p class="text-muted">Posts</p>
-                                </li>
-                            </ul>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="James Anderson">
+                    <img src="../../static/images/users/avatar-3.jpg" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
 
-                            <div class="project-members mb-4">
-                                <label class="mr-3">Members :</label>
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
-                                    <img src="../../static/images/users/avatar-1.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
+                    <img src="../../static/images/users/avatar-4.jpg" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
 
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Michael Zenaty">
-                                    <img src="../../static/images/users/avatar-2.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Username">
+                    <img src="../../static/images/users/avatar-5.jpg" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
+            </div>
 
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="James Anderson">
-                                    <img src="../../static/images/users/avatar-3.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
+            <label class="">Regular Meeting:
+                <span class="text-custom">Friday, Saturday 4PM</span>
+            </label>
 
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
-                                    <img src="../../static/images/users/avatar-4.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
-
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Username">
-                                    <img src="../../static/images/users/avatar-5.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
-                            </div>
-
-                            <label class="">Regular Meeting: <span class="text-custom">Friday, Saturday 4PM</span></label>
-
-                        </div>
-                    </div><!-- end col-->
-                    <div class="col-xl-4">
-                        <div class="card-box project-box">
-                            <div class="dropdown pull-right">
-                                <a href="#" class="dropdown-toggle card-drop arrow-none" data-toggle="dropdown" aria-expanded="false">
-                                    <h3 class="m-0 text-muted"><i class="mdi mdi-dots-horizontal"></i></h3>
-                                </a>
-                            </div>
-                            <p class="text-muted text-uppercase mb-0 font-13">Soccer group</p>
-                            <h4 class="mt-0 mb-3"><a href="" class="text-dark">Midland Soccer group 5 pm</a></h4>
-                            <p class="text-muted font-13">Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. When an unknown printer took a galley of type and
-                                scrambled it...<a href="#" class="font-600 text-muted">view more</a>
-                            </p>
-
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h3 class="mb-0">12</h3>
-                                    <p class="text-muted">Members</p>
-                                </li>
-                                <li class="list-inline-item">
-                                    <h3 class="mb-0">452</h3>
-                                    <p class="text-muted">Posts</p>
-                                </li>
-                            </ul>
-
-                            <div class="project-members mb-4">
-                                <label class="mr-3">Members :</label>
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
-                                    <img src="../../static/images/users/avatar-1.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
-
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Michael Zenaty">
-                                    <img src="../../static/images/users/avatar-2.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
-
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="James Anderson">
-                                    <img src="../../static/images/users/avatar-3.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
-
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
-                                    <img src="../../static/images/users/avatar-4.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
-
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Username">
-                                    <img src="../../static/images/users/avatar-5.jpg" class="rounded-circle thumb-sm" alt="friend" />
-                                </a>
-                            </div>
-
-                            <label class="">Regular Meeting: <span class="text-custom">Friday, Saturday 4PM</span></label>
-
-                        </div>
-                    </div><!-- end col-->
-                </div>
-                <!-- end row -->
+        </div>
+    </div>
+    <!-- end col-->
+</div>
+<!-- end row -->
 
 {% endblock %}
