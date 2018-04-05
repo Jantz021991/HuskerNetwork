@@ -11,8 +11,8 @@ from django.http import HttpResponse
 from .serializers import *
 from django.contrib import messages
 from . forms import UserRegistrationForm
-from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash, login, authenticate
+from django.contrib.auth.forms import PasswordChangeForm, UserCreationForm
 from django.utils.translation import gettext as _
 
 # Create your views here.
@@ -35,22 +35,31 @@ def feed(request):
 
 def register(request):
     if request.method == 'POST':
-        user_form = UserRegistrationForm(request.POST)
-        if user_form.is_valid():
-            # Create a new user object but avoid saving it yet
-            new_user = user_form.save(commit=False)
-            # Set the chosen password
-            new_user.set_password(
-                    user_form.cleaned_data['password'])
-            # Save the User object
-            new_user.save()
-            profile = Player.objects.create(user=new_user)
-            return render(request,
-                    'registration/register_done.html',
-                    {'new_user': new_user})
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            # # Set the chosen password
+            # new_user.set_password(
+            #         user_form.cleaned_data['password'])
+            # # Save the User object
+            # new_user.save()
+            #profile = Player.objects.create(user=new_user)
+            # return render(request,
+            #         'registration/register_done.html',
+            #         {'new_user': new_user})
+            return redirect('/')
     else:
+<<<<<<< HEAD
         user_form = UserRegistrationForm()
     return render(request, 'registration/register.html', {'user_form': user_form})
+=======
+        form = UserRegistrationForm()
+    return render(request, 'HuskersApp/register.html', {'form': form})
+>>>>>>> cb76cc7b46e5a7b773e64671fa27aae82a51c4cf
 
 def venue_detail(request):
     return render(request, 'HuskersApp/venue_detail.html',
