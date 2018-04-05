@@ -3,4 +3,4 @@
 *.pyc
 db.sqlite3
 __pycache__
-HuskersApp/settings.py
+local_settings.py

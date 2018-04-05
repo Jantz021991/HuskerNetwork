@@ -47,6 +47,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
+    'social.apps.django_app.default',
+    'social_django',
+
+
     'rest_framework',
     'widget_tweaks',
 ]
@@ -96,7 +101,6 @@ DATABASES = {
     }
 
 }
-
 
 
 
@@ -171,3 +175,13 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+# # python-social-auth settings
+# AUTHENTICATION_BACKENDS = (
+#     'social.backends.facebook.Facebook2OAuth2',
+#     'social.backends.google.GoogleOAuth2',
+#     'social.backends.twitter.TwitterOAuth',
+#
+#     'django.contrib.auth.backends.ModelBackend',
+# )
