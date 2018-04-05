@@ -65,7 +65,7 @@ class Post(models.Model):
 class Player(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
     date_of_birth = models.DateField(blank=True, null=True)
-    # photo = models.ImageField(upload_to='users/%Y/%m/%d', blank=True)
+    photo = models.ImageField(upload_to='users/%Y/%m/%d', blank=True)
     favorite_team = models.CharField(max_length=100, blank=True)
     current_location = models.CharField(max_length=100, blank=True)
     introduction = models.TextField(max_length=500, blank=True)

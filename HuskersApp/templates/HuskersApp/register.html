@@ -36,61 +36,65 @@
                         </a>
                     </h2>
 
-                    {#                            <form class="" action="#">#}
-                    {#                                <p>Please sign up using the following form</p>#}
-                    {#                                <div class="form-group m-b-20 row">#}
-                    {#                                    <div class="col-12">#}
-                    {#                                        <label for="username">Username</label>#}
-                    {#                                        <input class="form-control" id="username" required="" placeholder="Enter your Username">#}
-                    {#                                    </div>#}
-                    {#                                </div>#}
-                    {#                                <div class="form-group m-b-20 row">#}
-                    {#                                    <div class="col-12">#}
-                    {#                                        <label for="firstname">Firstname</label>#}
-                    {#                                        <input class="form-control" id="firstname" required="" placeholder="Enter your Firstname">#}
-                    {#                                    </div>#}
-                    {#                                </div>#}
-                    {#                                <div class="form-group m-b-20 row">#}
-                    {#                                    <div class="col-12">#}
-                    {#                                        <label for="email">Email Address</label>#}
-                    {#                                        <input class="form-control" type="email" id="email" required="" placeholder="Enter your Fistname">#}
-                    {#                                    </div>#}
-                    {#                                </div>#}
-                    {##}
-                    {#                                <div class="form-group row m-b-20">#}
-                    {#                                    <div class="col-12">#}
-                    {#                                        <label for="password">Password</label>#}
-                    {#                                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">#}
-                    {#                                    </div>#}
-                    {#                                </div>#}
-                    {#                                <div class="form-group row m-b-20">#}
-                    {#                                    <div class="col-12">#}
-                    {#                                        <label for="password">Repeat Password</label>#}
-                    {#                                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">#}
-                    {#                                    </div>#}
-                    {#                                </div>#}
-                    {##}
-                    {#                                <div class="form-group row text-center m-t-10">#}
-                    {#                                    <div class="col-12">#}
-                    {#                                        <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Sign Up</button>#}
-                    {#                                    </div>#}
-                    {#                                </div>#}
-                    {##}
-                    {#                            </form>#}
+                                                <form class="" action="." method="post">
+                                                    <p>Please sign up using the following form</p>
+                                                    <div class="form-group m-b-20 row">
+                                                        <div class="col-12">
+                                                            <label for="username">Username</label>
+                                                            <input class="form-control" id="username" required="" placeholder="Enter your Username">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group m-b-20 row">
+                                                        <div class="col-12">
+                                                            <label for="firstname">Firstname</label>
+                                                            <input class="form-control" id="firstname" required="" placeholder="Enter your Firstname">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group m-b-20 row">
+                                                        <div class="col-12">
+                                                            <label for="email">Email Address</label>
+                                                            <input class="form-control" type="email" id="email" required="" placeholder="Enter your Fistname">
+                                                        </div>
+                                                    </div>
 
-                    {% block content %}
-                        <h1>Create an account</h1>
-                        <p>Please, sign up using the following form:</p>
+                                                    <div class="form-group row m-b-20">
+                                                        <div class="col-12">
+                                                            <label for="password">Password</label>
+                                                            <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row m-b-20">
+                                                        <div class="col-12">
+                                                            <label for="password">Repeat Password</label>
+                                                            <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                                        </div>
+                                                    </div>
 
-                        <form action="." method="post">
-                            {{ user_form.as_p }}
-                            {% csrf_token %}
-                            <div class="col-12">
-                                <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Sign Up</button>
-                            </div>
+                                                    <div class="form-group row text-center m-t-10">
+                                                        <div class="col-12">
+                                                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Sign Up</button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+
+{#                    {% block content %}#}
+{#                        <h3>Register with Huskers Network!</h3>#}
+{#                        <br>#}
+{#                        <p>Please, sign up using the following form:</p>#}
+{#                        <br>#}
+{#                        <form action="." method="post">#}
+{#                            <div class="form-group">#}
+{#                                {{ user_form.as_p }}#}
+{#                                {% csrf_token %}#}
+{#                                <div class="col-12">#}
+{#                                    <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Sign Up</button>#}
+{#                                </div>#}
+{#                            </div>#}
                             {#                            <p><input type="submit" value="Create my account"></p>#}
-                        </form>
-                    {% endblock %}
+{#                        </form>#}
+{##}
+{#                    {% endblock %}#}
 
                 </div>
             </div>

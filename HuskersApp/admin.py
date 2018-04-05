@@ -16,7 +16,7 @@ class VenueList(admin.ModelAdmin):
     search_fields = ('name', 'city', 'state')
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'date_of_birth']
+    list_display = ['user', 'date_of_birth','photo']
 
 class GroupList(admin.ModelAdmin):
     list_display = ('name', 'venue', 'meeting_time', 'groupAdmin', 'hashtag',)
