@@ -70,14 +70,17 @@
                     </form>
                     <div class="row m-t-50">
                         <div class="col-12">
-                            <button type="button" class="btn btn-facebook btn-block waves-effect waves-light">
+                            <button type="submit" class="btn btn-facebook btn-block waves-effect waves-light">
+                                <a href="{% url 'social:begin' 'facebook' %}">
                                 <i class="fa fa-facebook m-r-15"></i> Login with Facebook
                             </button>
-                            <button type="button" class="btn btn-twitter btn-block waves-effect waves-light">
+                            <button type="submit" class="btn btn-twitter btn-block waves-effect waves-light">
+                                <a href="{% url 'social:begin' 'twitter' %}">
                                 <i class="fa fa-twitter m-r-15"></i> Login with Twitter
                             </button>
-                            <button type="button" class="btn btn-googleplus btn-block waves-effect waves-light">
-                                <i class="fa fa-google-plus m-r-15"></i> Login with Google
+                            <button type="submit" class="btn btn-googleplus btn-block waves-effect waves-light">
+                                <a href="{% url 'social:begin' 'google-oauth2' %}">
+                                <i class="fa fa-google-plus m-r-15"></i> Login with Google Plus
                             </button>
                         </div>
                     </div>
@@ -88,6 +91,9 @@
 
                         </div>
                     </div>
+                    <div class="m-t-40 text-center">
+                        <p class="account-copyright">2018 © HuskersNetwork</p>
+                    </div>
 
                 </div>
             </div>
@@ -96,9 +102,7 @@
     </div>
 
 
-    <div class="m-t-40 text-center">
-        <p class="account-copyright">2018 © HuskersNetwork</p>
-    </div>
+
 
 </div>
 

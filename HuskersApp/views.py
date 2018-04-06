@@ -36,7 +36,7 @@ def feed(request):
 def register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
-        if user_form.is_valid():
+        if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
