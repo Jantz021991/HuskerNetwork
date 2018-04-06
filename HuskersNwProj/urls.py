@@ -30,12 +30,10 @@ urlpatterns = [
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.password_reset_confirm, name='password_reset_confirm'),
     url(r'^reset/done/$', views.password_reset_complete, name='password_reset_complete'),
-<<<<<<< HEAD
     url('^oauth/', include('social_django.urls', namespace='social')),
     url('^social-oauth/', include('social_django.urls', namespace='social')),
-=======
     url(r'^register/$', app_views.register, name='register'),
->>>>>>> b51dcf6377efbd6c98ba8b0b9c86efa8c8dfdbd7
+
 ]
 
 

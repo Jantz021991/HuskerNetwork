@@ -65,47 +65,19 @@
                         <div class="row m-t-50">
                             <div class="col-12">
                                 <button type="button" class="btn btn-facebook btn-block waves-effect waves-light">
-                                    <i class="fa fa-facebook m-r-15"></i> Login with Facebook
+                                    <a href="{% url 'social:begin' 'facebook' %}">
+									<i class="fa fa-facebook m-r-15"></i> Login with Facebook
                                 </button>
                                 <button type="button" class="btn btn-twitter btn-block waves-effect waves-light">
-                                    <i class="fa fa-twitter m-r-15"></i> Login with Twitter
+                                    <a href="{% url 'social:begin' 'twitter' %}">
+									<i class="fa fa-twitter m-r-15"></i> Login with Twitter
                                 </button>
                                 <button type="button" class="btn btn-googleplus btn-block waves-effect waves-light">
+								    <a href="{% url 'social:begin' 'google-oauth2' %}">
                                     <i class="fa fa-google-plus m-r-15"></i> Login with Google
                                 </button>
                             </div>
                         </div>
-<<<<<<< HEAD
-
-                    </form>
-                    <div class="row m-t-50">
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-facebook btn-block waves-effect waves-light">
-                                <a href="{% url 'social:begin' 'facebook' %}">
-                                <i class="fa fa-facebook m-r-15"></i> Login with Facebook
-                            </button>
-                            <button type="submit" class="btn btn-twitter btn-block waves-effect waves-light">
-                                <a href="{% url 'social:begin' 'twitter' %}">
-                                <i class="fa fa-twitter m-r-15"></i> Login with Twitter
-                            </button>
-                            <button type="submit" class="btn btn-googleplus btn-block waves-effect waves-light">
-                                <a href="{% url 'social:begin' 'google-oauth2' %}">
-                                <i class="fa fa-google-plus m-r-15"></i> Login with Google Plus
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="row m-t-50">
-                        <div class="col-sm-12 text-center">
-                            <p class="text-muted">Don't have an account? <a href="{% url 'HuskersApp:register' %}" class="text-dark m-l-5"><b>Sign Up</b></a></p>
-
-                        </div>
-                    </div>
-                    <div class="m-t-40 text-center">
-                        <p class="account-copyright">2018 © HuskersNetwork</p>
-                    </div>
-
-=======
                         <div class="row m-t-50">
                             <div class="col-sm-12 text-center">
                                 <p class="text-muted">Don't have an account?
@@ -116,7 +88,6 @@
                             </div>
                         </div>
                     </div>
->>>>>>> b51dcf6377efbd6c98ba8b0b9c86efa8c8dfdbd7
                 </div>
             </div>
         </div>
@@ -132,26 +103,9 @@
     <script src="{% static "js/waves.js" %}"></script>
     <script src="{% static "js/jquery.slimscroll.js" %}"></script>
 
-<<<<<<< HEAD
-
-
-</div>
-
-<!-- jQuery  -->
-<script src="../../static/js/jquery.min.js"></script>
-<script src="../../static/js/popper.min.js"></script>
-<script src="../../static/js/bootstrap.min.js"></script>
-<script src="../../static/js/waves.js"></script>
-<script src="../../static/js/jquery.slimscroll.js"></script>
-
-<!-- App js -->
-<script src="../../static/js/jquery.core.js"></script>
-<script src="../../static/js/jquery.app.js"></script>
-=======
     <!-- App js -->
     <script src="{% static "js/jquery.core.js" %}"></script>
     <script src="{% static "js/jquery.app.js" %}"></script>
->>>>>>> b51dcf6377efbd6c98ba8b0b9c86efa8c8dfdbd7
 
 </body>
 </html>
