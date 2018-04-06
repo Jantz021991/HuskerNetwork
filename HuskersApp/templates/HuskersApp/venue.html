@@ -1,5 +1,6 @@
 {% extends 'HuskersApp/base.html' %}
 {% load staticfiles %}
+{% load static %}
 {% block content %}
 
 <div class="content container">
@@ -19,7 +20,7 @@
     {% for venue in venues %}
     <div class="col-md-4">
         <div class="thumbnail" style="padding-bottom: 62px">
-            <img src="{% static " images/soccer1.jpg" %}" alt="venue" />
+            <img src="{% static "images/soccer1.jpg" %}" alt="venue" />
             <div class="caption">
                 <h3>{{ venue.name }}</h3>
                 <p>{{venue.city}}</p>
