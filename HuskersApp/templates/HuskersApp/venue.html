@@ -6,21 +6,37 @@
 <div class="content container">
     <div class="row">
         <div class="col-md-8">
-            <h1>Venues in Omaha</h1>
+            <h1>Venues </h1>
             <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1oGglhTwWm3yz9m3sWkhZyM1aNwILMt7y" width="1150"
                     height="400"></iframe>
         </div>
     </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="{% url 'HuskersApp:venue_new' %}">
+                <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4">
+                    <i class="mdi mdi-plus-circle"></i> Create New Venue
+                </button>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <a href="{% url 'HuskersApp:venue_list' %}">
+                <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4">
+                    <i class="mdi mdi-plus-circle"></i> Update Venue
+                </button>
+            </a>
+        </div>
+    </div>
 </div>
 
-<br>
-<br>
 
 <div class="row">
     {% for venue in venues %}
     <div class="col-md-4">
         <div class="thumbnail" style="padding-bottom: 62px">
-            <img src="{% static "images/soccer1.jpg" %}" alt="venue" />
+            <img src = "{% static " images/soccer1.jpg" %}" alt="venue" />
             <div class="caption">
                 <h3>{{ venue.name }}</h3>
                 <p>{{venue.city}}</p>
@@ -31,10 +47,8 @@
             </div>
         </div>
     </div>
-
     {% endfor %}
 </div>
-
 
 
 <!--<div class="row">-->
