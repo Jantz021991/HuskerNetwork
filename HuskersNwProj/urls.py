@@ -31,6 +31,8 @@ urlpatterns = [
         views.password_reset_confirm, name='password_reset_confirm'),
     url(r'^reset/done/$', views.password_reset_complete, name='password_reset_complete'),
     url(r'^register/$', app_views.register, name='register'),
+    url('^oauth/', include('social_django.urls', namespace='social')),
+    url('^social-oauth/', include('social_django.urls', namespace='social')),
 ]
 
 
