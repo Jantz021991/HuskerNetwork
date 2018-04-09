@@ -25,8 +25,10 @@ def home(request):
 
 @login_required
 def venue(request):
+    venues = Venue.objects.filter(created_date__lte=timezone.now())
+    venue = Venue.objects.all()
     return render(request, 'HuskersApp/venue.html',
-                  {'HuskersApp': venue})
+                  {'HuskersApp': venue , 'venues': venues})
 
 def feed(request):
     return render(request, 'HuskersApp/feed.html',
@@ -47,13 +49,13 @@ def register(request):
         form = UserRegistrationForm()
     return render(request, 'HuskersApp/register.html', {'form': form})
 
-def venue_detail(request):
-    return render(request, 'HuskersApp/venue_detail.html',
-                  {'HuskersApp': venue_detail})
-                  # {'HuskersApp': home,
-                  # 'posts': posts,
-                  # 'groups': groups,
-                  # 'members': members})
+# def venue_detail(request):
+#     return render(request, 'HuskersApp/venue_detail.html',
+#                   {'HuskersApp': venue_detail},
+#                   {'HuskersApp': home,
+#                   'posts': posts,
+#                   'groups': groups,
+#                   'members': members})
 
 """
 Manage Venues
@@ -64,9 +66,10 @@ def venue_list(request):
     """
     List All Venues available
     """
-    venues = Venue.objects.all()
-    serializer = VenueSerializer(venues, many=True)
+    #venues = Venue.objects.all()
+    #serializer = VenueSerializer(venue, many=True)
     # TODO: List all new venues based on created_date
+    venues = Venue.objects.filter(created_date__lte=timezone.now())
     # TODO: List all popular venues based on group count
     return render(request, 'HuskersApp/venue_list.html',
                     {'venues': venues})
@@ -76,19 +79,17 @@ def venue_list(request):
 def venue_edit(request, pk):
     venue = get_object_or_404(Venue, pk=pk)
     if request.method == 'POST':
-        form = VenueForm(request.POST, instance=Venue)
+        form = VenueForm(request.POST, instance=venue)
         if form.is_valid():
-            venue = form.save(commit=False)
+            venue = form.save()
             venue.updated_date = timezone.now()
             venue.save()
-            venue = Venue.objects.filter(created_date__lte=timezone.now())
-            return render(request, 'HuskersApp/venue_list.html',
-                            {'venue': venue})
+            venues = Venue.objects.filter(created_date__lte=timezone.now())
+            return render(request, 'HuskersApp/venue_list.html', {'venues': venues})
 
     else:
         form = VenueForm(instance=venue)
-    return render(request, 'HuskersApp/venue_edit.html',
-                {'form': form})
+    return render(request, 'HuskersApp/venue_edit.html', {'form': form})
 
 
 @login_required

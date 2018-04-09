@@ -1,37 +1,37 @@
 {% extends 'HuskersApp/base.html' %}
 {%  load staticfiles %}
 
-
 {% block content %}
+
+
 
 <div class="content container">
     <div class="row">
-        <div class="col-md-8">
-            <h1>Venues in Omaha</h1>
-            <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1oGglhTwWm3yz9m3sWkhZyM1aNwILMt7y" width="1150" height="400"></iframe>
+        <div class="col-md-4">
+            <h1>{{venue.city}} Weather</h1>
+            <div id="openweathermap-widget-15"></div>
+            <script>
+                var cityId = "{{ cityId }}";
+                window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+                window.myWidgetParam.push({
+                    id: 15,
+                    cityid: cityId,
+                    appid: '1c20b22acd0d5d1f853c04e0bcc77011',
+                    units: 'metric',
+                    containerid: 'openweathermap-widget-15',
+                });
+                (
+                    function () {
+                        var script = document.createElement('script');
+                        script.async = true;
+                        script.charset = "utf-8";
+                        script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+                        var s = document.getElementsByTagName('script')[0];
+                        s.parentNode.insertBefore(script, s);
+                    }
+                )();
+            </script>
         </div>
     </div>
 </div>
-<div id="openweathermap-widget-15"></div>
-<script>
-    var cityId = "{{ cityId }}";
-        window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
-    window.myWidgetParam.push({
-        id: 15,
-        cityid: cityId,
-        appid: '1c20b22acd0d5d1f853c04e0bcc77011',
-        units: 'metric',
-        containerid: 'openweathermap-widget-15',
-    });
-    (
-        function () {
-            var script = document.createElement('script');
-            script.async = true;
-            script.charset = "utf-8";
-            script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(script, s);
-        }
-    )();
-</script>
 {% endblock %}

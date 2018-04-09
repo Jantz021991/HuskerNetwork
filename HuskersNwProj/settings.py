@@ -47,8 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
     'social.apps.django_app.default',
     'social_django',
+
 
     'rest_framework',
     'widget_tweaks',
@@ -150,7 +152,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),)
 
 
-STATIC_URL = '/static/'
+
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
