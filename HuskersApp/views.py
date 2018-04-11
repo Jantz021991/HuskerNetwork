@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import *
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .serializers import *
 from django.contrib import messages
 from . forms import UserRegistrationForm
@@ -34,7 +34,6 @@ def feed(request):
 
 def register(request):
     if request.method == 'POST':
-        print("Inside Register method")
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
@@ -70,7 +69,7 @@ def venue_list(request):
     # TODO: List all popular venues based on group count
     return render(request, 'HuskersApp/venue_list.html',
                     {'venues': venues})
-       
+
 
 @login_required
 def venue_edit(request, pk):
@@ -133,7 +132,7 @@ def venue_detail(request, pk):
                      'groups': groups,
                      'cityId': city_id,
                      })
-    
+
 
 """
 Manage Groups
@@ -142,24 +141,31 @@ Manage Groups
 @login_required
 def group_list(request):
     """
-    List All Groups 
+    List All Groups
     """
     groups = Group.objects.all()
     # Get the current user
     currentUser = request.user
-    # Get the groups of which the current user is a part 
+    # Get the groups of which the current user is a part
     currentUserGroups = User.objects.get(id=currentUser.id).group_set.all()
     return render(request, 'HuskersApp/group_list.html',
                     {'groups': groups,
                     'currentUserGroups': currentUserGroups})
-       
+
 
 @login_required
 def group_detail(request, pk):
     # List details of a group
     group = get_object_or_404(Group, pk=pk)
+    # Get the current user
+    currentUser = request.user
+    if currentUser in group.users.all():
+        isGroupMember = True
+    else:
+        isGroupMember = False
     return render(request, 'HuskersApp/group_detail.html',
-                    {'group': group})
+                    {'group': group,
+                    'isGroupMember': isGroupMember})
 
 @login_required
 def group_new(request):
@@ -187,7 +193,7 @@ def group_delete(request, pk):
     # TODO: Check Group delete case if user is admin of Group
     group = get_object_or_404(Group, pk=pk)
     group.delete()
-    #TODO: Check which page to be routed 
+    #TODO: Check which page to be routed
     return redirect('HuskersApp/group_list.html')
 
 
@@ -226,3 +232,25 @@ def change_password(request):
     return render(request, 'registration/change_password.html', {
         'form': form
     })
+
+def update_user_group(request):
+    userAction = request.GET.get('userAction', None)
+    pk = request.GET.get('pk', None)
+    currentUser = request.user
+    group = get_object_or_404(Group, pk=pk)
+    if userAction == 'leave':
+        group.users.remove(currentUser)
+        message = 'Successfully removed from group'
+        userRemoved = True
+        userAdded = False
+    elif userAction == 'join':
+        group.users.add(currentUser)
+        message = 'Successfully added to group'
+        userRemoved = False
+        userAdded = True
+    data = {
+        'message': message,
+        'userRemoved': userRemoved,
+        'userAdded': userAdded
+    }
+    return JsonResponse(data)

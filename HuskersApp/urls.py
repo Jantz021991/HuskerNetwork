@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^groups/create/$', views.group_new, name='group_new'),
     url(r'^groups/(?P<pk>\d+)/edit/$', views.group_edit, name='group_edit'),
     url(r'^password/$', views.change_password, name='change_password'),
+    url(r'^ajax/leavegroup/$', views.update_user_group, name='update_user_group'),
     ]
 
 

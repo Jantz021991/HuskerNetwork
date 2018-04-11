@@ -6,9 +6,18 @@
 
 <div class="content container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <h1>{{group.name}} Details</h1>
-                <iframe id="map" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe id="map" width="550" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-6" style="padding-top:120px">
+                <h3>Group Details</h3>
+                <p>{{group.group_details}}</p>
+                  {% if isGroupMember %}
+                  <button class="btn btn-danger" id="updateGroup" value="leave">Leave</button>
+                  {% else %}
+                  <button class="btn btn-success" id="updateGroup" value="join">Join</button>
+                  {% endif %}
             </div>
         </div>
     </div>
@@ -20,5 +29,37 @@
           var src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyC1suB65O-4HLhdwn1yCfNMCQn23AE59aA&q=" + encodeURIComponent(venue);
           $('#map').attr('src', src);
       });
+
+      // When user clicks on leave group button, make an ajax request and remove user from ths group
+        $("#updateGroup").on("click", function() {
+          var button = $(this);
+
+          $.ajax({
+            url: '/ajax/leavegroup/',
+            data: {
+              'userAction': button.val(),
+              'pk': '{{ group.id }}'
+            },
+            dataType: 'json',
+            success: function(data) {
+              console.log(data.message);
+              if(data.userRemoved) {
+                button.removeClass('btn-danger');
+                button.addClass('btn-success');
+                button.text("Join");
+                button.val("join")
+              } else if(data.userAdded) {
+                button.removeClass('btn-success');
+                button.addClass('btn-danger');
+                button.text("Leave");
+                button.val("leave")
+              }
+            },
+            error: function(data) {
+              alert("Could not remove user");
+            }
+          });
+        });
+
     </script>
 {% endblock %}
