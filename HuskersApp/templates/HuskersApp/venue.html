@@ -1,143 +1,179 @@
-{% extends 'HuskersApp/base.html' %} 
-{% load staticfiles %} 
+{% extends 'HuskersApp/base.html' %}
+{% load staticfiles %}
+{% load static %}
 {% block content %}
 
 <div class="content container">
     <div class="row">
         <div class="col-md-8">
-            <h1>Venues in Omaha</h1>
-            <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1oGglhTwWm3yz9m3sWkhZyM1aNwILMt7y" width="1150" height="400"></iframe>
+            <h1>Venues </h1>
+            <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1oGglhTwWm3yz9m3sWkhZyM1aNwILMt7y" width="1150"
+                    height="400"></iframe>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="{% url 'HuskersApp:venue_new' %}">
+                <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4">
+                    <i class="mdi mdi-plus-circle"></i> Create New Venue
+                </button>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <a href="{% url 'HuskersApp:venue_list' %}">
+                <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4">
+                    <i class="mdi mdi-plus-circle"></i> Update Venue
+                </button>
+            </a>
         </div>
     </div>
 </div>
 
-<br>
-<br>
 
 <div class="row">
+    {% for venue in venues %}
     <div class="col-md-4">
         <div class="thumbnail" style="padding-bottom: 62px">
-            <img src="{% static "images/soccer1.jpg" %}" alt="customer" />
+            <img src = "{% static " images/soccer1.jpg" %}" alt="venue" />
             <div class="caption">
-                <h3>Zorinsky Soccer Fields</h3>
-                <p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,
-                    Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>
+                <h3>{{ venue.name }}</h3>
+                <p>{{venue.city}}</p>
                 <p style="text-align: center">
-                    <a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>
+                    <a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' pk=venue.pk %}" role="button">View
+                        details &raquo;</a>
                 </p>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="thumbnail" style="padding-bottom: 32px">
-            <img src="{% static "images/soccer2.jpg" %}" alt="customer" />
-            <div class="caption">
-                <h3>Discovery Soccer Complex</h3>
-                <p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,
-                    Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>
-                <p style="text-align: center">
-                    <a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="thumbnail" style="padding-bottom: 2px">
-            <img src="{% static "images/soccer3.jpg" %}" alt="customer" />
-            <div class="caption">
-                <h3>Millard Star Soccer Complex</h3>
-                <p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,
-                    Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>
-                <p style="text-align: center">
-                    <a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <div class="thumbnail" style="padding-bottom: 56px">
-            <img src="{% static "images/soccer4.jpg" %}" alt="customer" />
-            <div class="caption">
-                <h3>Omaha Sports Complex</h3>
-                <p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,
-                    Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>
-                <p style="text-align: center">
-                    <a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="thumbnail" style="padding-bottom: 128px">
-            <img src="{% static "images/soccer5.jpg" %}" alt="customer" />
-            <div class="caption">
-                <h3>Nebraska State Soccer</h3>
-                <p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,
-                    Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>
-                <p style="text-align: center">
-                    <a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="thumbnail" style="padding-bottom: 2px">
-            <img src="{% static "images/soccer6.jpg" %}" alt="customer" />
-            <div class="caption">
-                <h3>Weircrest soccer field</h3>
-                <p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,
-                    Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>
-                <p style="text-align: center">
-                    <a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <div class="thumbnail" style="padding-bottom: 102px">
-            <img src="{% static "images/soccer7.jpg" %}" alt="customer" />
-            <div class="caption">
-                <h3>Tranquility Soccer Complex</h3>
-                <p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,
-                    Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>
-                <p style="text-align: center">
-                    <a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="thumbnail" style="padding-bottom: 92px">
-            <img src="{% static "images/soccer8.jpg" %}" alt="customer" />
-            <div class="caption">
-                <h3>Tranquility Park</h3>
-                <p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,
-                    Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>
-                <p style="text-align: center">
-                    <a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="thumbnail" style="padding-bottom: 2px">
-            <img src="{% static "images/soccer9.jpg" %}" alt="customer" />
-            <div class="caption">
-                <h3>Indoor Soccer Center</h3>
-                <p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,
-                    Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>
-                <p style="text-align: center">
-                    <a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>
-                </p>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 
+
+<!--<div class="row">-->
+<!--<div class="col-md-4">-->
+<!--<div class="thumbnail" style="padding-bottom: 62px">-->
+<!--<img src="{% static "images/soccer1.jpg" %}" alt="customer" />-->
+<!--<div class="caption">-->
+<!--<h3>Zorinsky Soccer Fields</h3>-->
+<!--<p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,-->
+<!--Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>-->
+<!--<p style="text-align: center">-->
+<!--<a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-md-4">-->
+<!--<div class="thumbnail" style="padding-bottom: 32px">-->
+<!--<img src="{% static "images/soccer2.jpg" %}" alt="customer" />-->
+<!--<div class="caption">-->
+<!--<h3>Discovery Soccer Complex</h3>-->
+<!--<p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,-->
+<!--Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>-->
+<!--<p style="text-align: center">-->
+<!--<a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-md-4">-->
+<!--<div class="thumbnail" style="padding-bottom: 2px">-->
+<!--<img src="{% static "images/soccer3.jpg" %}" alt="customer" />-->
+<!--<div class="caption">-->
+<!--<h3>Millard Star Soccer Complex</h3>-->
+<!--<p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,-->
+<!--Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>-->
+<!--<p style="text-align: center">-->
+<!--<a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="row">-->
+<!--<div class="col-md-4">-->
+<!--<div class="thumbnail" style="padding-bottom: 56px">-->
+<!--<img src="{% static "images/soccer4.jpg" %}" alt="customer" />-->
+<!--<div class="caption">-->
+<!--<h3>Omaha Sports Complex</h3>-->
+<!--<p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,-->
+<!--Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>-->
+<!--<p style="text-align: center">-->
+<!--<a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-md-4">-->
+<!--<div class="thumbnail" style="padding-bottom: 128px">-->
+<!--<img src="{% static "images/soccer5.jpg" %}" alt="customer" />-->
+<!--<div class="caption">-->
+<!--<h3>Nebraska State Soccer</h3>-->
+<!--<p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,-->
+<!--Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>-->
+<!--<p style="text-align: center">-->
+<!--<a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-md-4">-->
+<!--<div class="thumbnail" style="padding-bottom: 2px">-->
+<!--<img src="{% static "images/soccer6.jpg" %}" alt="customer" />-->
+<!--<div class="caption">-->
+<!--<h3>Weircrest soccer field</h3>-->
+<!--<p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,-->
+<!--Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>-->
+<!--<p style="text-align: center">-->
+<!--<a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="row">-->
+<!--<div class="col-md-4">-->
+<!--<div class="thumbnail" style="padding-bottom: 102px">-->
+<!--<img src="{% static "images/soccer7.jpg" %}" alt="customer" />-->
+<!--<div class="caption">-->
+<!--<h3>Tranquility Soccer Complex</h3>-->
+<!--<p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,-->
+<!--Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>-->
+<!--<p style="text-align: center">-->
+<!--<a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-md-4">-->
+<!--<div class="thumbnail" style="padding-bottom: 92px">-->
+<!--<img src="{% static "images/soccer8.jpg" %}" alt="customer" />-->
+<!--<div class="caption">-->
+<!--<h3>Tranquility Park</h3>-->
+<!--<p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,-->
+<!--Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>-->
+<!--<p style="text-align: center">-->
+<!--<a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-md-4">-->
+<!--<div class="thumbnail" style="padding-bottom: 2px">-->
+<!--<img src="{% static "images/soccer9.jpg" %}" alt="customer" />-->
+<!--<div class="caption">-->
+<!--<h3>Indoor Soccer Center</h3>-->
+<!--<p>Nebraska State Soccer manages the following fields for Omaha Parks and Recreation - Benson, Dodge, Whitehawk,-->
+<!--Seymour Smith, Tranquility and Zorinsky. These fields are game only fields.</p>-->
+<!--<p style="text-align: center">-->
+<!--<a class="btn btn-primary" href="{% url 'HuskersApp:venue_detail' %}" role="button">View details &raquo;</a>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
 
 {% endblock %}
