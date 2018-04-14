@@ -11,7 +11,7 @@
     </div>
 </div>
 <!-- end page title end breadcrumb -->
-
+{% if user.is_authenticated %}
 <div class="row">
     <div class="col-sm-4">
         <a href="{% url 'HuskersApp:group_new' %}">
@@ -29,7 +29,7 @@
     </div>
 </div>
 <!-- end row -->
-
+{% endif %}
 <div class="row">
     <div class="col-8">
         <div class="card-box">
