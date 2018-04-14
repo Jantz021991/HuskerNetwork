@@ -1,0 +1,135 @@
+{% extends 'HuskersApp/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Profile</h4>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <!-- meta -->
+        <div class="profile-user-box card-box bg-custom">
+            <div class="row">
+                <div class="col-sm-6">
+                    <span class="pull-left mr-3"><img src="{% static "images/users/avatar-1.jpg" %}" alt="" class="thumb-lg rounded-circle"></span>
+                    <div class="media-body text-white">
+                        <h4 class="mt-1 mb-1 font-18">John Smith</h4>
+                        <p class="text-light mb-0">Omaha, United States</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-right">
+                        <button type="button" class="btn btn-light waves-effect">
+                            <i class="mdi mdi-account-settings-variant mr-1"></i> Manage Account
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ meta -->
+    </div>
+</div>
+<!-- end row -->
+
+
+<div class="row">
+    <div class="col-md-4">
+        <!-- Personal-Information -->
+        <div class="card-box">
+            <h4 class="header-title mt-0 m-b-20">About</h4>
+            <div class="panel-body">
+                <p class="text-muted font-13">
+                    Hye, I’m John Smith. I enjoy playing soccer. I want to play soccer. My favorite team is Juventus and Barcelona. I like icecream and I can eat everyday. I'm hungry right now and the same time too tired to prepare it. Perfect dilemma. Implicit biases in human beings will be more significant than ever.
+                </p>
+
+                <hr/>
+
+                <div class="text-left">
+                    <img src="{% static "images/users/avatar.jpg" %}">
+                </div>
+
+                
+            </div>
+        </div>
+        <!-- Personal-Information -->
+    </div>
+    <div class="col-md-8">
+    	<h4>John's Groups</h4>
+        <div class="row">
+        	{% for currentUserGroup in currentUserGroups %}
+            <div class="col-4">
+		        <div class="card-box project-box">
+		            <div class="dropdown pull-right">
+		                <a href="#" class="dropdown-toggle card-drop arrow-none" data-toggle="dropdown" aria-expanded="false">
+		                    <h3 class="m-0 text-muted">
+		                        <i class="mdi mdi-dots-horizontal"></i>
+		                    </h3>
+		                </a>
+		            </div>
+		            <p class="text-muted text-uppercase mb-0 font-13">Soccer group</p>
+		            <h4 class="mt-0 mb-3">
+		                <a href="" class="text-dark">{{ currentUserGroup.name }}</a>
+		            </h4>
+		            <p class="text-muted font-13">{{ currentUserGroup.group_details | truncatechars:100 }}
+		                <a href="{% url 'HuskersApp:group_detail' pk=currentUserGroup.pk %}" class="font-600 text-muted">View more</a>
+		            </p>
+
+		            <ul class="list-inline">
+		                <li class="list-inline-item">
+		                    <h3 class="mb-0">12</h3>
+		                    <p class="text-muted">Members</p>
+		                </li>
+		                <li class="list-inline-item">
+		                    <h3 class="mb-0">452</h3>
+		                    <p class="text-muted">Posts</p>
+		                </li>
+		            </ul>
+
+		            <div class="project-members mb-4">
+		                <label class="mr-3">Members :</label>
+		                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
+		                    <img src="{% static "images/users/avatar-1.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+		                </a>
+
+		                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Michael Zenaty">
+		                    <img src="{% static "images/users/avatar-2.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+		                </a>
+
+		                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="James Anderson">
+		                    <img src="{% static "images/users/avatar-3.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+		                </a>
+
+		                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
+		                    <img src="{% static "images/users/avatar-4.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+		                </a>
+
+		                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Username">
+		                    <img src="{% static "images/users/avatar-5.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+		                </a>
+		            </div>
+
+		            <label class="">Regular Meeting:
+		                <span class="text-custom">Friday, Saturday 4PM</span>
+		            </label>
+
+		        </div>
+		    </div>
+		    {% endfor %}
+
+        </div>
+        <!-- end row -->
+
+       
+
+    </div>
+    <!-- end col -->
+
+</div>
+<!-- end row -->
+{% endblock %}
