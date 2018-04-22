@@ -31,8 +31,36 @@ def venue(request):
                   {'HuskersApp': venue , 'venues': venues})
 
 def feed(request):
+    base_url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=7428267176.4f125aa.e88665afec684b70be7d1ec36e07c86f"
+    url = requests.get(base_url).json()
+    instagram_data = url
+    data_list = instagram_data['data']
+    tags = []
+    images_url_list = []
+    like_comment = []
+    # looping for each post and getting the tags and image link
+    total_posts = len(data_list)
+    for i in range(total_posts):
+        data = data_list[i]
+        tag_list = data['tags']
+        tag = tag_list[0]
+        tags.append(tag)
+        # collecting images
+        image = data['images']
+        standard_image = image['standard_resolution']
+        image_url = standard_image['url']
+        images_url_list.append(image_url)
+        # Commenting and like
+        link = data['link']
+        like_comment.append(link)
+
+
     return render(request, 'HuskersApp/feed.html',
-                  {'HuskersApp': feed})
+                  {'HuskersApp': feed,
+                   'TotalPosts': total_posts,
+                   'ImagesUrl': images_url_list,
+                   'Tags': tags,
+                   'LikeComment': like_comment})
 
 def register(request):
     if request.method == 'POST':

@@ -4,6 +4,43 @@
 
 {% block content %}
 
-    <h1>Here we are</h1>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Instagram Photos </h1>
+            {% for image in ImagesUrl %}
+            <div class="img" align="left">
+                <br>
+                <img src={{image}} width="450x450" height="300X300">
+                <br>
+                <br>
+            </div>
+            {% endfor %}
+        </div>
+        <br>
+    </div>
+</div>
+<div class="content container">
 
+    <div class="col-sm-4">
+        <a href="https://www.instagram.com/p/Bh2u7aDAayZ/">
+            <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4">
+                <i class="mdi mdi-plus-circle"></i> Like and Comment Us on Instagram
+            </button>
+        </a>
+    </div>
+    <!--<div class="row">-->
+        <!--<a class="btn btn-primary" href="https://www.instagram.com/p/Bh2u7aDAayZ/" role="button"> Like and Comment on Instagram</a>-->
+    <!--</div>-->
+    <div class="row">
+    <div class="col-md-8">
+        <h1>Instagram Feed -</h1>
+        {% for Tag in Tags %}
+        <h1># {{Tag}} </h1>
+        {% endfor %}
+    </div>
+</div>
+</div>
 {% endblock %}
+
+
