@@ -4,43 +4,56 @@
 
 {% block content %}
 
-<div class="content container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Instagram Photos </h1>
-            {% for image in ImagesUrl %}
-            <div class="img" align="left">
-                <br>
-                <img src={{image}} width="450x450" height="300X300">
-                <br>
-                <br>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+
+            <h4 class="page-title">Hashtag Feed</h4>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+	<div class="col-sm-12 col-lg-6">
+	<div class="input-group m-t-10 m-b-30">
+                <input type="text" id="" name="hashtag" class="form-control" value="Hashtag">
+                <span class="input-group-btn">
+                    <button type="button" class="btn waves-effect waves-light btn-custom"><i class="fa fa-search m-r-5"></i> Search</button>
+                </span>
+        </div>
+	</div>
+</div>
+
+<div class="row m-b-30">
+    <div class="col-12">
+        <h5 class="m-t-10 m-b-30">Instagram Tags Feed</h5>
+        {% for Tag in Tags %}
+        <div class="card-columns">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h5 class="card-title"> Check Feeds and Like/Comment us On <a href="https://www.instagram.com/p/Bh2u7aDAayZ/">Instagram</a></h5>
+                    <p class="card-text"># {{Tag}} </p>
+                </div>
+        	</div>
+        </div>
+        {% endfor %}
+        <div class="col-12">
+        <div class="card m-b-30">
+            <div class="card-body">
+                <h3 class="card-title">Instagram Photos - </h3>
+                <p class="card-text">Instagram Account Photos</p>
             </div>
+            {% for image in ImagesUrl %}
+            <img class="w3-round"  src={{image}} alt="Card image cap" width="450x450" height="350X350">
+            <br>
+            <br>
             {% endfor %}
         </div>
-        <br>
-    </div>
-</div>
-<div class="content container">
+        </div>
 
-    <div class="col-sm-4">
-        <a href="https://www.instagram.com/p/Bh2u7aDAayZ/">
-            <button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4">
-                <i class="mdi mdi-plus-circle"></i> Like and Comment Us on Instagram
-            </button>
-        </a>
-    </div>
-    <!--<div class="row">-->
-        <!--<a class="btn btn-primary" href="https://www.instagram.com/p/Bh2u7aDAayZ/" role="button"> Like and Comment on Instagram</a>-->
-    <!--</div>-->
-    <div class="row">
-    <div class="col-md-8">
-        <h1>Instagram Feed -</h1>
-        {% for Tag in Tags %}
-        <h1># {{Tag}} </h1>
-        {% endfor %}
     </div>
 </div>
-</div>
+
 {% endblock %}
 
 
