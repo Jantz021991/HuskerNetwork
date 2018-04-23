@@ -17,10 +17,20 @@ from datetime import datetime
 
 # Create your views here.
 
+def welcome(request):
+  posts = Post.objects.count()
+  groups = Group.objects.count()
+  members = User.objects.count()
+  venues = Venue.objects.count()
+  if request.user.is_authenticated:
+    return render(request, 'HuskersApp/home.html')
+  return render(request, 'HuskersApp/index.html',
+                {'venues': venues,
+                'groups': groups,
+                'members': members})
+
+@login_required
 def home(request):
-    posts = Post.objects.count()
-    groups = Group.objects.count()
-    members = User.objects.count()
     return render(request, 'HuskersApp/home.html',
                   {'HuskersApp': home})
 
@@ -31,6 +41,7 @@ def venue(request):
     return render(request, 'HuskersApp/venue.html',
                   {'HuskersApp': venue , 'venues': venues})
 
+@login_required
 def feed(request):
     base_url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=7428267176.4f125aa.e88665afec684b70be7d1ec36e07c86f"
     url = requests.get(base_url).json()
@@ -77,13 +88,9 @@ def register(request):
         form = UserRegistrationForm()
     return render(request, 'HuskersApp/register.html', {'form': form})
 
-# def venue_detail(request):
-#     return render(request, 'HuskersApp/venue_detail.html',
-#                   {'HuskersApp': venue_detail},
-#                   {'HuskersApp': home,
-#                   'posts': posts,
-#                   'groups': groups,
-#                   'members': members})
+def venue_detail(request):
+    return render(request, 'HuskersApp/venue_detail.html',
+                  {'HuskersApp': venue_detail})
 
 """
 Manage Venues

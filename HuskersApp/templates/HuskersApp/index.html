@@ -1,3 +1,6 @@
+{% extends 'HuskersApp/base.html' %}
+{% load staticfiles %}
+{% block content %}
 <!DOCTYPE html>
 <html>
 
@@ -39,10 +42,10 @@
                             <!-- End mobile menu toggle-->
                         </li>
                         <li>
-                            <a class="nav-link dropdown-toggle waves-effect nav-user" href="#" role="button">Sign Up</a>
+                            <a class="nav-link dropdown-toggle waves-effect nav-user" href="{% url 'register' %}" role="button">Sign Up</a>
                         </li>
                         <li>
-                            <a class="nav-link dropdown-toggle waves-effect nav-user" href="#" role="button">Sign In</a>
+                            <a class="nav-link dropdown-toggle waves-effect nav-user" href="{% url 'login' %}" role="button">Sign In</a>
                         </li>
                     </ul>
                 </div>
@@ -58,8 +61,12 @@
         <img src="{% static "images/back.jpg" %}" style="position:absolute">
         <div class="col-3 card-box tilebox-one" style="position: absolute; margin-top: 90px; margin-left: 90px;">
             <p>Join Huskers Network, Play and Network</p>
-            <button type="button" class="btn btn-primary waves-effect waves-light btn-lg">Sign In</button>
-            <button type="button" class="btn btn-primary waves-effect waves-light btn-lg">Sign Up</button>
+            <a href="{% url 'login' %}">
+                <button type="button" class="btn btn-primary waves-effect waves-light btn-lg">Sign In</button>
+            </a>
+            <a href="{% url 'register' %}">
+                <button type="button" class="btn btn-primary waves-effect waves-light btn-lg">Sign Up</button>
+            </a>
         </div>
     </div>
     <div class="wrapper" style="margin-top:-80px">
@@ -68,7 +75,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-title-box">
-                        <h4 class="page-title">Home</h4>
+                        <h4 class="page-title">Welcome</h4>
                     </div>
                 </div>
             </div>
@@ -77,24 +84,24 @@
                 <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
                     <div class="card-box tilebox-one">
                         <i class="icon-user-following float-right text-muted"></i>
-                        <h6 class="text-muted text-uppercase mt-0">Membesr</h6>
-                        <h2 class="m-b-20" data-plugin="counterup">1,587</h2>
+                        <h6 class="text-muted text-uppercase mt-0">Members</h6>
+                        <h2 class="m-b-20" data-plugin="counterup">{{ members }}</h2>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
                     <div class="card-box tilebox-one">
                         <i class="icon-map float-right text-muted"></i>
                         <h6 class="text-muted text-uppercase mt-0">Venues</h6>
-                        <h2 class="m-b-20">$
-                            <span data-plugin="counterup">48</span>
+                        <h2 class="m-b-20">
+                            <span data-plugin="counterup">{{ venues }}</span>
                         </h2>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
                     <div class="card-box tilebox-one">
                         <i class="icon-game-controller float-right text-muted"></i>
-                        <h6 class="text-muted text-uppercase mt-0">Games Everydaye</h6>
-                        <h2 class="m-b-20">$
+                        <h6 class="text-muted text-uppercase mt-0">Games Everyday</h6>
+                        <h2 class="m-b-20">
                             <span data-plugin="counterup">15.9</span>
                         </h2>
                     </div>
@@ -102,8 +109,8 @@
                 <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
                     <div class="card-box tilebox-one">
                         <i class="icon-people float-right text-muted"></i>
-                        <h6 class="text-muted text-uppercase mt-0">Groups Total</h6>
-                        <h2 class="m-b-20" data-plugin="counterup">1,890</h2>
+                        <h6 class="text-muted text-uppercase mt-0">Groups</h6>
+                        <h2 class="m-b-20" data-plugin="counterup">{{ groups }}</h2>
                     </div>
                 </div>
             </div>
@@ -134,3 +141,4 @@
     <script src="{% static "js/jquery.app.js" %}"></script>
 </body>
 </html>
+{% endblock %}

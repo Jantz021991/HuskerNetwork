@@ -23,7 +23,7 @@ from HuskersApp import views as app_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('HuskersApp.urls', namespace='HuskersApp')),
-    url(r'^accounts/login/$', views.login, name='login'),
+    url(r'^accounts/login/$', views.login, name='login', kwargs={'redirect_authenticated_user': True}),
     url(r'^accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
     url(r'^password_reset/$', views.password_reset, name='password_reset'),
     url(r'^password_reset/done/$', views.password_reset_done, name='password_reset_done'),
