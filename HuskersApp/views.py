@@ -276,10 +276,14 @@ def manage_account(request):
         currentUser = User.objects.get(id=request.user.id)
         user = get_object_or_404(User, id=currentUser.id)
         userForm = UserForm(request.POST, instance=user)
-        player = Player.objects.get(user=currentUser)
-        if not player:
+        try:
+          player = Player.objects.get(user=currentUser)
+        except Player.DoesNotExist:
           player = Player()
           player.user = request.user
+        # if not player:
+        #   player = Player()
+        #   player.user = request.user
         playerForm = ManageAccountForm(request.POST, instance=player)
         if playerForm.is_valid() and userForm.is_valid():
             userForm.save()
