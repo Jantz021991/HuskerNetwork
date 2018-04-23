@@ -13,6 +13,7 @@ from . forms import UserRegistrationForm
 from django.contrib.auth import update_session_auth_hash, login, authenticate
 from django.contrib.auth.forms import PasswordChangeForm, UserCreationForm
 from django.utils.translation import gettext as _
+from datetime import datetime
 
 # Create your views here.
 
@@ -283,3 +284,21 @@ def update_user_group(request):
         'userAdded': userAdded
     }
     return JsonResponse(data)
+
+
+@login_required
+def manage_account(request):
+    if request.method == 'POST':
+        form = ManageAccountForm(request.POST, request.user)
+        if form.is_valid():
+            player = form.save(commit=False)
+            player.user = request.user
+            player.save()
+            return redirect('/')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = ManageAccountForm(request.user)
+    return render(request, 'HuskersApp/manage.html', {
+        'form': form
+    })

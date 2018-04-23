@@ -1,5 +1,6 @@
 {% extends 'HuskersApp/base.html' %}
 {%  load staticfiles %}
+{% load i18n widget_tweaks %}
 
 
 {% block content %}
@@ -8,8 +9,8 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="page-title-box">
-            
-            <h4 class="page-title">Manage Account</h4>
+
+            <h3 class="page-title">Manage Account</h3>
         </div>
     </div>
 </div>
@@ -25,11 +26,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="p-20">
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" role="form" method="post">
+                          {% csrf_token %}
                             <div class="form-group row">
-                                <label class="col-2 col-form-label">Date of Birth</label>
+                                <label class="col-2 col-form-label" for="id_date_of_birth">Date of Birth</label>
                                 <div class="col-10">
-                                    <input class="form-control" type="date" name="date">
+                                    <input class="form-control" type="date" name="date_of_birth" id="id_date_of_birth">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -39,9 +41,9 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-2 col-form-label">Favorite Team</label>
+                                <label class="col-2 col-form-label" for="id_favorite_team">Favorite Team</label>
                                 <div class="col-10">
-                                    <select class="form-control">
+                                    <select class="form-control" name="favorite_team" id="id_favorite_team">
                                         <option>Barcelona</option>
                                         <option>Arsenal</option>
                                         <option>Manchester</option>
@@ -51,20 +53,22 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-2 col-form-label">Current Location</label>
+                                <label class="col-2 col-form-label" for="id_current_location">Current Location</label>
                                 <div class="col-10">
-                                    <input type="text" class="form-control" value="Some text value...">
+                                    <input type="text" class="form-control" name="current_location" maxlength="100" id="id_current_location">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-2 col-form-label">Short Introduction</label>
+                                <label class="col-2 col-form-label" for="id_introduction">Short Introduction</label>
                                 <div class="col-10">
-                                    <textarea class="form-control" rows="5"></textarea>
+                                    <textarea class="form-control" rows="5" name="introduction" maxlength="500" id="id_introduction"></textarea>
                                 </div>
                             </div>
-
-                           
-
+                            <div class="form-group">
+                                <div class="col-12" style="text-align:center">
+                                    <button type="submit" class="btn btn-primary btn-lg">{% trans "Submit" %}</button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

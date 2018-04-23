@@ -29,9 +29,7 @@ class UserRegistrationForm(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'email', 'password1', 'password2', )
 
-    # def clean_password2(self):
-    #     '''Check if both password matches'''
-    #     cd = self.cleaned_data
-    #     if cd['password'] != cd['password2']:
-    #         raise forms.ValidationError('Passwords don\'t match.')
-    #     return cd['password2']
+class ManageAccountForm(forms.ModelForm):
+    class Meta:
+        model = Player
+        fields = ('date_of_birth', 'favorite_team','current_location','introduction')
