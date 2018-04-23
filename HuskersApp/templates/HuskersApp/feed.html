@@ -27,16 +27,20 @@
     <div class="col-12">
         <h3 class="m-t-10 m-b-30">Instagram</h3>
         <h5 class="card-title"> Check Feeds and Like/Comment us On <a href="https://www.instagram.com/p/Bh2u7aDAayZ/">Instagram</a></h5>
-        <div class="card-columns">
+        <div class="row">
             {% for data in dataList %}
-            <div class="row">
+            <div class="col-4">
                 <div class="card-body">
-                    <p class="card-text"># {{data.tags.0}} </p>
-                    <img class="w3-round"  src={{data.images.standard_resolution.url}} alt="Card image cap" width="400x300" height="350X350">
+                  <p>
+                    {% for tag in data.tags %}
+                    <span class="card-text">#{{tag}}</span>
+                    {% endfor %}
+                  </p>
+                  <img class="w3-round"  src={{data.images.standard_resolution.url}} alt="Card image cap" width="400x300" height="350X350">
                 </div>
           </div>
           {% endfor %}
-        </div> 
+        </div>
     </div>
 </div>
 
