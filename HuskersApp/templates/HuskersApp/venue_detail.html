@@ -4,10 +4,17 @@
 {% block content %}
 
 
-
 <div class="content container">
     <div class="row">
-        <div class="col-md-4" >
+        <div class="col-md-8">
+            <h3>Venue Details</h3>
+            <h5>{{venue.name}} is located at {{venue.address_line_1}},{{venue.address_line_2}}</h5>
+            <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC1suB65O-4HLhdwn1yCfNMCQn23AE59aA&q={{venue.name}}"
+                    width="600"
+                    height="300"></iframe>
+
+        </div>
+        <div class="col-md-4">
             <h1>{{venue.city}} Weather</h1>
             <div id="openweathermap-widget-15"></div>
             <script>
@@ -32,21 +39,7 @@
                 )();
             </script>
         </div>
-        <div class="col-md-8" style="padding-top:60px">
-            <h3>Venue Details</h3>
-            <h5>{{venue.name}} is located at {{venue.address_line_1}},{{venue.address_line_2}}</h5>
-            <br>
-            <br>
-            <h5>{{group.name}}</h5>
-            <!--{% if isGroupMember %}-->
-            <!--<button class="btn btn-danger" id="updateGroup" value="leave">Leave</button>-->
-            <!--{% else %}-->
-            <!--<button class="btn btn-success" id="updateGroup" value="join">Join</button>-->
-            <!--{% endif %}-->
-            <div>
-                <button class="btn btn-success" value="">Join</button>
-            </div>
-        </div>
+
 
     </div>
 </div>
