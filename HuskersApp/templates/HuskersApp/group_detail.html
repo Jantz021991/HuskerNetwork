@@ -22,6 +22,20 @@
         </div>
     </div>
 
+
+<div class="content container">
+    <h3 class="m-t-10 m-b-30">Members</h3>
+  <div class="row">
+      {% for groupMember in groupMembers %}
+    <div class="col-md-3">
+      <h5>
+          <a href="{% url 'HuskersApp:user_profile' id=groupMember.id %}" class="text-dark">{{ groupMember.username }}</a>
+      </h5>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
     <script src="{% static "js/jquery.min.js" %}"></script>
     <script type="text/javascript">
       $(document).ready(function() {

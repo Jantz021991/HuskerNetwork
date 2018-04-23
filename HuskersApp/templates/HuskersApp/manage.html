@@ -28,6 +28,18 @@
                     <div class="p-20">
                         <form class="form-horizontal" role="form" method="post">
                           {% csrf_token %}
+                          <div class="form-group row">
+                              <label class="col-2 col-form-label" for="id_first_name">First Name</label>
+                              <div class="col-10">
+                                  <input class="form-control" type="text" name="first_name" id="id_first_name">
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                              <label class="col-2 col-form-label" for="id_last_name">Last Name</label>
+                              <div class="col-10">
+                                  <input class="form-control" type="text" name="last_name" id="id_last_name">
+                              </div>
+                          </div>
                             <div class="form-group row">
                                 <label class="col-2 col-form-label" for="id_date_of_birth">Date of Birth</label>
                                 <div class="col-10">

@@ -33,3 +33,8 @@ class ManageAccountForm(forms.ModelForm):
     class Meta:
         model = Player
         fields = ('date_of_birth', 'favorite_team','current_location','introduction')
+
+class UserForm(forms.ModelForm):
+  class Meta:
+    model = User
+    fields = ('first_name', 'last_name')

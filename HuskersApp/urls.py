@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^password/$', views.change_password, name='change_password'),
     url(r'^ajax/leavegroup/$', views.update_user_group, name='update_user_group'),
     url(r'^manage_account/$', views.manage_account, name='manage_account'),
+    url(r'^user/(?P<id>\d+)/profile/$', views.user_profile, name='user_profile'),
     ]
 
 

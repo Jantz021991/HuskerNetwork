@@ -171,13 +171,15 @@ def group_detail(request, pk):
     group = get_object_or_404(Group, pk=pk)
     # Get the current user
     currentUser = request.user
+    groupMembers = group.users.all()
     if currentUser in group.users.all():
         isGroupMember = True
     else:
         isGroupMember = False
     return render(request, 'HuskersApp/group_detail.html',
                     {'group': group,
-                    'isGroupMember': isGroupMember})
+                    'isGroupMember': isGroupMember,
+                    'groupMembers': groupMembers})
 
 @login_required
 def group_new(request):
@@ -271,16 +273,31 @@ def update_user_group(request):
 @login_required
 def manage_account(request):
     if request.method == 'POST':
-        form = ManageAccountForm(request.POST, request.user)
-        if form.is_valid():
-            player = form.save(commit=False)
-            player.user = request.user
-            player.save()
+        currentUser = User.objects.get(id=request.user.id)
+        user = get_object_or_404(User, id=currentUser.id)
+        userForm = UserForm(request.POST, instance=user)
+        player = get_object_or_404(Player, user=currentUser)
+        playerForm = ManageAccountForm(request.POST, instance=player)
+        if playerForm.is_valid() and userForm.is_valid():
+            userForm.save()
+            playerForm.save()
             return redirect('/')
         else:
             messages.error(request, 'Please correct the error below.')
     else:
-        form = ManageAccountForm(request.user)
+        playerForm = ManageAccountForm(request.user)
+        userForm = UserForm(request.user)
     return render(request, 'HuskersApp/manage.html', {
-        'form': form
+        'playerForm': playerForm,
+        'userForm': userForm
     })
+
+@login_required
+def user_profile(request, id):
+  userProfile = User.objects.get(id=id)
+  currentUserGroups = User.objects.get(id=id).group_set.all()
+  return render(request, 'HuskersApp/profile.html', {
+                'userProfile': userProfile,
+                'currentUserGroups': currentUserGroups})
+
+
