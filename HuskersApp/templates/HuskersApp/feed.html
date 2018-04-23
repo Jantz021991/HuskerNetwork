@@ -4,6 +4,56 @@
 
 {% block content %}
 
-    <h1>Here we are</h1>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+
+            <h4 class="page-title">Hashtag Feed</h4>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+	<div class="col-sm-12 col-lg-6">
+	<div class="input-group m-t-10 m-b-30">
+                <input type="text" id="" name="hashtag" class="form-control" value="Hashtag">
+                <span class="input-group-btn">
+                    <button type="button" class="btn waves-effect waves-light btn-custom"><i class="fa fa-search m-r-5"></i> Search</button>
+                </span>
+        </div>
+	</div>
+</div>
+
+<div class="row m-b-30">
+    <div class="col-12">
+        <h5 class="m-t-10 m-b-30">Instagram Tags Feed</h5>
+        {% for Tag in Tags %}
+        <div class="card-columns">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h5 class="card-title"> Check Feeds and Like/Comment us On <a href="https://www.instagram.com/p/Bh2u7aDAayZ/">Instagram</a></h5>
+                    <p class="card-text"># {{Tag}} </p>
+                </div>
+        	</div>
+        </div>
+        {% endfor %}
+        <div class="col-12">
+        <div class="card m-b-30">
+            <div class="card-body">
+                <h3 class="card-title">Instagram Photos - </h3>
+                <p class="card-text">Instagram Account Photos</p>
+            </div>
+            {% for image in ImagesUrl %}
+            <img class="w3-round"  src={{image}} alt="Card image cap" width="450x450" height="350X350">
+            <br>
+            <br>
+            {% endfor %}
+        </div>
+        </div>
+
+    </div>
+</div>
 
 {% endblock %}
+
+

@@ -50,6 +50,7 @@ class Group(models.Model):
         ordering = ('name',)
 
 
+
 class Post(models.Model):
     post_text = models.TextField(max_length=None)
     group = models.ForeignKey(Group, related_name='group_post', on_delete=models.CASCADE)
