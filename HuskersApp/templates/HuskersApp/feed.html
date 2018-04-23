@@ -7,7 +7,7 @@
     <div class="col-sm-12">
         <div class="page-title-box">
 
-            <h4 class="page-title">Hashtag Feed</h4>
+            <h2 class="page-title">Hashtag Feed</h2>
 
         </div>
     </div>
@@ -25,34 +25,47 @@
 
 <div class="row m-b-30">
     <div class="col-12">
-        <h5 class="m-t-10 m-b-30">Instagram Tags Feed</h5>
-        {% for Tag in Tags %}
+        <h3 class="m-t-10 m-b-30">Instagram Feed</h3>
+        <h5 class="card-title"> Check Feeds and Like/Comment us On <a href="https://www.instagram.com/p/Bh2u7aDAayZ/">Instagram</a></h5>
         <div class="card-columns">
-            <div class="card m-b-30">
+            {% for data in dataList %}
+            <div class="row">
                 <div class="card-body">
-                    <h5 class="card-title"> Check Feeds and Like/Comment us On <a href="https://www.instagram.com/p/Bh2u7aDAayZ/">Instagram</a></h5>
-                    <p class="card-text"># {{Tag}} </p>
+                    <p class="card-text"># {{data.tags.0}} </p>
+                    <img class="w3-round"  src={{data.images.standard_resolution.url}} alt="Card image cap" width="400x300" height="350X350">
                 </div>
-        	</div>
-        </div>
-        {% endfor %}
-        <div class="col-12">
-        <div class="card m-b-30">
-            <div class="card-body">
-                <h3 class="card-title">Instagram Photos - </h3>
-                <p class="card-text">Instagram Account Photos</p>
-            </div>
-            {% for image in ImagesUrl %}
-            <img class="w3-round"  src={{image}} alt="Card image cap" width="450x450" height="350X350">
-            <br>
-            <br>
-            {% endfor %}
-        </div>
-        </div>
-
+          </div>
+          {% endfor %}
+        </div> 
     </div>
 </div>
 
+<div class="row m-b-30">
+    <div class="col-12">
+        <h3 class="m-t-10 m-b-30">Twitter Feed</h3>
+        <div class="row">
+          <div class="col-6">
+            <a class="twitter-timeline"  href="https://twitter.com/hashtag/ChelseaFC" data-widget-id="987932698890162176">#ChelseaFC Tweets</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </div>
+          <div class="col-6">
+            <a class="twitter-timeline"  href="https://twitter.com/hashtag/GoalOfTheDay" data-widget-id="987933717166510080">#GoalOfTheDay Tweets</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-6">
+          <a class="twitter-timeline"  href="https://twitter.com/hashtag/Huskers" data-widget-id="987924951155007488">#Huskers Tweets</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+        <div class="col-6">
+          <a class="twitter-timeline"  href="https://twitter.com/hashtag/FCBarcelona" data-widget-id="987926355978399744">#FCBarcelona Tweets</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
-
-
