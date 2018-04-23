@@ -42,5 +42,76 @@
 
 
     </div>
+    <div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Venue's Groups</h4>
+        </div>
+    </div>
+</div>
+    <div class="row">
+  {% for group in groups %}
+    <div class="col-xl-4">
+        <div class="card-box project-box">
+            <div class="dropdown pull-right">
+                <a href="#" class="dropdown-toggle card-drop arrow-none" data-toggle="dropdown" aria-expanded="false">
+                    <h3 class="m-0 text-muted">
+                        <i class="mdi mdi-dots-horizontal"></i>
+                    </h3>
+                </a>
+            </div>
+            <p class="text-muted text-uppercase mb-0 font-13">Soccer group</p>
+            <h4 class="mt-0 mb-3">
+                <a href="{% url 'HuskersApp:group_detail' pk=group.pk %}" class="text-dark">{{ group.name }}</a>
+            </h4>
+            <p class="text-muted font-13">{{ group.group_details | truncatechars:100 }}
+                <a href="{% url 'HuskersApp:group_detail' pk=group.pk %}" class="font-600 text-muted">View more</a>
+            </p>
+
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <h3 class="mb-0">12</h3>
+                    <p class="text-muted">Members</p>
+                </li>
+                <li class="list-inline-item">
+                    <h3 class="mb-0">452</h3>
+                    <p class="text-muted">Posts</p>
+                </li>
+            </ul>
+
+            <div class="project-members mb-4">
+                <label class="mr-3">Members :</label>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
+                    <img src="{% static "images/users/avatar-1.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
+
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Michael Zenaty">
+                    <img src="{% static "images/users/avatar-2.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
+
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="James Anderson">
+                    <img src="{% static "images/users/avatar-3.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
+
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
+                    <img src="{% static "images/users/avatar-4.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
+
+                <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Username">
+                    <img src="{% static "images/users/avatar-5.jpg" %}" class="rounded-circle thumb-sm" alt="friend" />
+                </a>
+            </div>
+
+            <label class="">Regular Meeting:
+                <span class="text-custom">Friday, Saturday 4PM</span>
+            </label>
+
+        </div>
+    </div>
+    <!-- end col-->
+{% endfor %}
+
+</div>
+    </div>
 </div>
 {% endblock %}

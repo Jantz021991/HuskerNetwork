@@ -136,12 +136,12 @@ def venue_detail(request, pk):
     # Based on venue Detail page in mockups
     venue = get_object_or_404(Venue, pk=pk)
     # Get all groups of which the venue is part of
-    group = Group.objects.filter(venue=pk)
+    groups = Group.objects.filter(venue=venue)
     venue_weather_data = venue.venue_weather()
     city_id = venue_weather_data["id"]
     return render(request, 'HuskersApp/venue_detail.html',
                     {'venue': venue,
-                     'group': group,
+                     'groups': groups,
                      'cityId': city_id,
                      })
 
