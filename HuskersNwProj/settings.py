@@ -102,7 +102,6 @@ DATABASES = {
 }
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -178,12 +177,9 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.open_id.OpenIdAuth',  # for Google authentication
-    # 'social_core.backends.google.GoogleOpenId',
-    # 'social_core.backends.google.GoogleOpenId',  # for Google authentication
     'social_core.backends.google.GoogleOAuth2',  # for Google authentication
     'social_core.backends.twitter.TwitterOAuth',
     'django.contrib.auth.backends.ModelBackend',
-    # 'HuskersApp.authentication.EmailAuthBackend',
 )
 SOCIAL_AUTH_GOOGLE_OAUTH2_IGNORE_DEFAULT_SCOPE = True
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
@@ -211,8 +207,8 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '93fefcfaf39ced0fe2dfda1b619a0ad2'
 SOCIAL_AUTH_TWITTER_KEY = 'NHuZqTxNdEHZqlIRToTgyG9oO'
 SOCIAL_AUTH_TWITTER_SECRET = 'b8JN998u3FbuocGBZ2fTAcjo7dB2sB6wuTOYeGZRmXBDzS5imN'
 
-SOCIAL_AUTH_GITHUB_KEY = '5849bb0630de8d4e5768'
-SOCIAL_AUTH_GITHUB_SECRET = '74fe946ee95b2c788ba516150639d346248506c4'
+SOCIAL_AUTH_GITHUB_KEY = '18daec47735b8d575149'
+SOCIAL_AUTH_GITHUB_SECRET = '1146e343adf3522881212536532fe87e7364a99f'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '159732030567-t5cnlqgtj7glpdr4r866o399ij3oh1cp.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'W17TJc3olLYImMsti1p_aQhr'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '658302952081-ji3i092b21a5l1547n5a32ku93njjeae.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'lcMoQqatS78aJGi3-Az0hgTl'
