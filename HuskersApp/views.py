@@ -31,8 +31,10 @@ def welcome(request):
 
 @login_required
 def home(request):
+    player = Player.objects.all()
     return render(request, 'HuskersApp/home.html',
-                  {'HuskersApp': home})
+                  {'HuskersApp': home,'player': player}
+                 )
 
 @login_required
 def venue(request):

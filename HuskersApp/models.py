@@ -70,3 +70,6 @@ class Player(models.Model):
     favorite_team = models.CharField(max_length=100, blank=True, null=True)
     current_location = models.CharField(max_length=100, blank=True, null=True)
     introduction = models.TextField(max_length=500, blank=True, null=True)
+
+    def __str__(self):
+        return self.favorite_team
