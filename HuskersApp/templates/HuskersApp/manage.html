@@ -31,13 +31,13 @@
                           <div class="form-group row">
                               <label class="col-2 col-form-label" for="id_first_name">First Name</label>
                               <div class="col-10">
-                                  <input class="form-control" type="text" name="first_name" id="id_first_name">
+                                  <input class="form-control" type="text" name="first_name" id="id_first_name" value="{{userForm.first_name.value|default_if_none:"" }}">
                               </div>
                           </div>
                           <div class="form-group row">
                               <label class="col-2 col-form-label" for="id_last_name">Last Name</label>
                               <div class="col-10">
-                                  <input class="form-control" type="text" name="last_name" id="id_last_name">
+                                  <input class="form-control" type="text" name="last_name" id="id_last_name" value="{{userForm.last_name.value|default_if_none:"" }}">
                               </div>
                           </div>
                             <div class="form-group row">
@@ -47,33 +47,21 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-2 col-form-label">Profile Picture</label>
-                                <div class="col-10">
-                                    <input type="file" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <label class="col-2 col-form-label" for="id_favorite_team">Favorite Team</label>
                                 <div class="col-10">
-                                    <select class="form-control" name="favorite_team" id="id_favorite_team">
-                                        <option>Barcelona</option>
-                                        <option>Arsenal</option>
-                                        <option>Manchester</option>
-                                        <option>Chelsea</option>
-                                        <option>Real Madrid</option>
-                                    </select>
+                                    <input class="form-control" name="favorite_team" id="id_favorite_team" value="{{playerForm.favorite_team.value|default_if_none:"" }}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-2 col-form-label" for="id_current_location">Current Location</label>
                                 <div class="col-10">
-                                    <input type="text" class="form-control" name="current_location" maxlength="100" id="id_current_location">
+                                    <input type="text" class="form-control" name="current_location" maxlength="100" id="id_current_location" value="{{playerForm.current_location.value|default_if_none:"" }}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-2 col-form-label" for="id_introduction">Short Introduction</label>
                                 <div class="col-10">
-                                    <textarea class="form-control" rows="5" name="introduction" maxlength="500" id="id_introduction"></textarea>
+                                    <textarea class="form-control" rows="5" name="introduction" maxlength="500" id="id_introduction">{{ playerForm.introduction.value|default_if_none:"" }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -92,4 +80,18 @@
 </div>
 <!-- end row -->
 
+<script src="{% static "js/jquery.min.js" %}"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var date = "{{ playerForm.date_of_birth.value }}";
+    console.log(date);
+    if(date) {
+      var dob = new Date(date);
+      var day = ("0" + dob.getDate()).slice(-2);
+      var month = ("0" + (dob.getMonth() + 1)).slice(-2);
+      var dateOfBirth = dob.getFullYear()+"-"+(month)+"-"+(day) ;
+      $("#id_date_of_birth").val(dateOfBirth);
+    }
+  });
+</script>
 {% endblock %}

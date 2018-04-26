@@ -274,18 +274,15 @@ def update_user_group(request):
 
 @login_required
 def manage_account(request):
+    currentUser = User.objects.get(id=request.user.id)
+    user = get_object_or_404(User, id=currentUser.id)
+    try:
+        player = Player.objects.get(user=currentUser)
+    except Player.DoesNotExist:
+        player = Player()
+        player.user = request.user
     if request.method == 'POST':
-        currentUser = User.objects.get(id=request.user.id)
-        user = get_object_or_404(User, id=currentUser.id)
         userForm = UserForm(request.POST, instance=user)
-        try:
-          player = Player.objects.get(user=currentUser)
-        except Player.DoesNotExist:
-          player = Player()
-          player.user = request.user
-        # if not player:
-        #   player = Player()
-        #   player.user = request.user
         playerForm = ManageAccountForm(request.POST, instance=player)
         if playerForm.is_valid() and userForm.is_valid():
             userForm.save()
@@ -294,8 +291,8 @@ def manage_account(request):
         else:
             messages.error(request, 'Please correct the error below.')
     else:
-        playerForm = ManageAccountForm(request.user)
-        userForm = UserForm(request.user)
+        playerForm = ManageAccountForm(instance=player)
+        userForm = UserForm(instance=request.user)
     return render(request, 'HuskersApp/manage.html', {
         'playerForm': playerForm,
         'userForm': userForm
