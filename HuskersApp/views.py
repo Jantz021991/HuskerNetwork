@@ -22,8 +22,9 @@ def welcome(request):
   groups = Group.objects.count()
   members = User.objects.count()
   venues = Venue.objects.count()
+  player = Player.objects.all()
   if request.user.is_authenticated:
-    return render(request, 'HuskersApp/home.html')
+    return render(request, 'HuskersApp/home.html', {'HuskersApp': home, 'player': player})
   return render(request, 'HuskersApp/index.html',
                 {'venues': venues,
                 'groups': groups,
@@ -32,8 +33,9 @@ def welcome(request):
 @login_required
 def home(request):
     player = Player.objects.all()
+    # print(player)
     return render(request, 'HuskersApp/home.html',
-                  {'HuskersApp': home,'player': player}
+                  {'HuskersApp': home, 'player': player}
                  )
 
 @login_required
