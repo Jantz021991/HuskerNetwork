@@ -72,4 +72,7 @@ class Player(models.Model):
     introduction = models.TextField(max_length=500, blank=True, null=True)
 
     def __str__(self):
+      if self.favorite_team:
         return self.favorite_team
+      else:
+        return ""
