@@ -92,11 +92,11 @@ WSGI_APPLICATION = 'HuskersNwProj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dbdauaas1adeai',
-        'USER': 'dxpuhdpwhcslvx',
-        'PASSWORD': 'fffd7ceb6fae2d092afcc358c7c089a3da319fb6c6095ffeaecb0ca262429c1f',
-        'HOST': 'ec2-107-21-126-193.compute-1.amazonaws.com',
-        'PORT': 5432,
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD':os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 
 }
